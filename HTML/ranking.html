@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking — Hive Study Club</title>
+  <link rel="stylesheet" href="/CSS/ranking.css" />
+  <link rel="icon" type="image/png" href="/logo/logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="bg-blob bg-blob--purple"></div>
+  <div class="bg-blob bg-blob--yellow"></div>
+
+  <!-- HEADER -->
+  <header id="top-header">
+    <div class="header-wrapper">
+      <a href="index.html" class="brand-link">
+        <img class="brand-logo" src="/logo/logo.png" alt="Hive Study Club logo" />
+        <span class="brand-name">Hive Study Club</span>
+      </a>
+      <div class="header-controls">
+        <a href="login.html" class="login-btn">Faça Login</a>
+        <button class="burger-btn" id="burgerBtn" aria-label="Abrir menu">
+          <i class="ri-menu-3-line" id="burgerIcon"></i>
+        </button>
+      </div>
+    </div>
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="side-menu" id="sideMenu">
+      <button class="close-menu-btn" id="closeMenuBtn"><i class="ri-close-line"></i></button>
+      <ul class="menu-list">
+        <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
+        <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
+        <li><a href="chatConversa.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
+        <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
+        <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
+        <li><a href="perfil.html"><i class="ri-user-line"></i><span>PERFIL</span></a></li>
+      </ul>
+      <a href="cadastrar.html" class="signup-btn-menu">CADASTRE-SE</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-header-tag"><i class="ri-sparkling-line"></i> Atualizado semanalmente</div>
+      <h1 class="page-title">Ranking dos <span>Melhores</span></h1>
+      <p class="page-subtitle">Os estudantes mais dedicados da semana. Estude mais para subir de posição!</p>
+    </div>
+
+    <!-- Podium (top 3) -->
+    <div class="podium">
+      <!-- 2nd -->
+      <div class="podium-item podium-2nd">
+        <div class="podium-avatar">
+          <img src="/Icons/imagem_user.png" alt="2º lugar" />
+          <span class="podium-medal silver"><i class="ri-medal-fill"></i></span>
+        </div>
+        <p class="podium-name">Usuário 2</p>
+        <p class="podium-pts">980 pts</p>
+        <div class="podium-block podium-block--2">2º</div>
+      </div>
+
+      <!-- 1st -->
+      <div class="podium-item podium-1st">
+        <div class="podium-crown"><i class="ri-vip-crown-fill"></i></div>
+        <div class="podium-avatar">
+          <img src="/Icons/imagem_user.png" alt="1º lugar" />
+          <span class="podium-medal gold"><i class="ri-medal-fill"></i></span>
+        </div>
+        <p class="podium-name">Usuário 1</p>
+        <p class="podium-pts">1.240 pts</p>
+        <div class="podium-block podium-block--1">1º</div>
+      </div>
+
+      <!-- 3rd -->
+      <div class="podium-item podium-3rd">
+        <div class="podium-avatar">
+          <img src="/Icons/imagem_user.png" alt="3º lugar" />
+          <span class="podium-medal bronze"><i class="ri-medal-fill"></i></span>
+        </div>
+        <p class="podium-name">Usuário 3</p>
+        <p class="podium-pts">760 pts</p>
+        <div class="podium-block podium-block--3">3º</div>
+      </div>
+    </div>
+
+    <!-- List (4th) -->
+    <div class="ranking-list">
+      <div class="ranking-list-header">
+        <span>Posição</span>
+        <span>Estudante</span>
+        <span>Pontos</span>
+        <span>Variação</span>
+      </div>
+
+      <div class="ranking-row" style="animation-delay:0s">
+        <div class="rank-pos">4</div>
+        <div class="rank-user">
+          <div class="rank-avatar">U</div>
+          <div>
+            <p class="rank-name">Usuário 4</p>
+            <p class="rank-sub">Matemática · 12 sessões</p>
+          </div>
+        </div>
+        <div class="rank-pts">620 <span>pts</span></div>
+        <div class="rank-change up"><i class="ri-arrow-up-s-fill"></i></div>
+      </div>
+
+      <div class="ranking-row" style="animation-delay:.06s">
+        <div class="rank-pos">5</div>
+        <div class="rank-user">
+          <div class="rank-avatar">U</div>
+          <div>
+            <p class="rank-name">Usuário 5</p>
+            <p class="rank-sub">Português · 9 sessões</p>
+          </div>
+        </div>
+        <div class="rank-pts">540 <span>pts</span></div>
+        <div class="rank-change down"><i class="ri-arrow-down-s-fill"></i></div>
+      </div>
+
+      <div class="ranking-row" style="animation-delay:.12s">
+        <div class="rank-pos">6</div>
+        <div class="rank-user">
+          <div class="rank-avatar">U</div>
+          <div>
+            <p class="rank-name">Usuário 6</p>
+            <p class="rank-sub">Ciências · 7 sessões</p>
+          </div>
+        </div>
+        <div class="rank-pts">490 <span>pts</span></div>
+        <div class="rank-change same"><i class="ri-subtract-line"></i></div>
+      </div>
+
+      <div class="ranking-row" style="animation-delay:.18s">
+        <div class="rank-pos">7</div>
+        <div class="rank-user">
+          <div class="rank-avatar">U</div>
+          <div>
+            <p class="rank-name">Usuário 7</p>
+            <p class="rank-sub">História · 5 sessões</p>
+          </div>
+        </div>
+        <div class="rank-pts">320 <span>pts</span></div>
+        <div class="rank-change up"><i class="ri-arrow-up-s-fill"></i></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer">
+    <div class="footer-links">
+      <a href="login.html">Login</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="suporte.html">Suporte</a>
+    </div>
+    <div class="footer-copy">copyright.com</div>
+    <div class="footer-social">
+      <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+      <a href="#" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+      <a href="#" aria-label="E-mail"><i class="ri-mail-line"></i></a>
+    </div>
+  </footer>
+
+  <script src="/JS_NAVBAR/script.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('top-header').classList.toggle('is-scrolled', window.scrollY > 10);
+    });
+  </script>
+</body>
+</html>

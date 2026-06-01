@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHAT</title>
+  <link rel="stylesheet" href="/CSS/chats/chat-humanas.css">
+  <link rel="icon" type="image/png" href="/logo/logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+    <img class="logo" src="/logo/logo.png" alt="logo" />
+    <div id="div-menu-line" class="div-menu-line">
+      <i id="barra-nav" class="ri-menu-line"></i>
+      </div>
+      <div id="div-close" class="div-close">
+        <i id="close-nav" class="ri-close-line"></i>
+      </div>
+    
+    <nav id="nav-header" class="nav-header">
+      <ul id="ul-nav">
+        <li class="li-nav"><a href="/HTML/index.html"><i id="i-nav" class="ri-home-2-line"></i>HOME</a></li>
+        <li class="li-nav"><a href="/HTML/sobre.html"><i id="i-nav" class="ri-file-marked-line"></i>SOBRE PROJETO</a></li>
+        <li class="li-nav"><a href="/HTML/chatConversa.html"><i id="i-nav" class="ri-question-answer-fill"></i>CHAT</a></li>
+        <li class="li-nav"><a href="/HTML/suporte.html"><i id="i-nav" class="ri-phone-line"></i>SUPORTE</a></li>
+        <li class="li-nav"><a href="/HTML/ranking.html"><i id="i-nav" class="ri-trophy-line"></i>RANKING</a></li>
+        <li class="li-nav"><a href="/HTML/perfil.html"><i id="i-nav" class="ri-user-line"></i>PERFIL</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="container">
+        <span class="span-input">
+          <span id="submit-document">
+            <input type="file" id="input-add-document" />
+              <span id="span-btn-add">
+                <button onclick="btnCliclick()" id="btn-add-document"><img class="img-add" src="/Icons/add-fill.svg" alt=""></button>
+              </span>
+          </span>
+            <input type="text" name="input-submit" id="input-submit" > 
+            <button id="btn-submit"><img class="img-submit" src="/Icons/arrow-right-line.svg" alt="btn-submit"></button>
+        </span>
+      </div>
+    </div>
+    </div>
+  </main>
+  <footer>
+    <div id="links-footer">
+      <a href="#" class="a-footer">Login</a>
+      <a href="#" class="a-footer">Sobre</a>
+      <a href="#" class="a-footer">Suporte</a>
+    </div>
+    <div id="footer-copy">
+      <p>copright.com</p>
+    </div>
+    <div id="div-icon-footer">
+      <i id="icons-footer" class="ri-linkedin-box-line"></i>
+      <i id="icons-footer" class="ri-github-fill"></i>
+      <i id="icons-footer" class="ri-mail-line"></i>
+    </div>
+  </footer>
+    <script src="/JS_NAVBAR/script.js"></script>
+    <script src="/menu-chatConversa/addDocument.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+# 📚 Plataforma de Mentoria
+
+Sistema desenvolvido em **Node.js** com **MySQL** para conectar pessoas que desejam **mentorar** com pessoas que desejam **ser mentoradas**.
+A aplicação permite cadastro de usuários, definição de áreas de mentoria e armazenamento de mensagens.
+
+---
+
+# 🚀 Tecnologias Utilizadas
+
+* Node.js
+* Express.js
+* MySQL
+* Nodemon
+* Dotenv
+* Bcrypt
+* CORS
+
+---
+
+# 📦 Instalação das Dependências
+
+Execute o comando abaixo para instalar as dependências do projeto:
+
+```bash
+npm install express nodemon dotenv bcrypt multer mysql2 cors
+```
+
+---
+
+# 🗄️ Banco de Dados
+
+## Criar Banco
+
+CREATE DATABASE bancoPI;
+USE bancoPI;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_nasc DATE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    pontos INT DEFAULT 0
+);
+
+CREATE TABLE funcoesUser (
+    id_area_mentorar INT PRIMARY KEY AUTO_INCREMENT,
+    nomeAreaMentorar VARCHAR(100) NOT NULL,
+    nomeAreaMentorado VARCHAR(100) NOT NULL,
+    users_id INT,
+
+    FOREIGN KEY (users_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE mensagensForum (
+    id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    users_id INT NOT NULL,
+    sala VARCHAR(100) NOT NULL,
+    imagem_url VARCHAR(255),
+
+    FOREIGN KEY (users_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+
+
+SELECT * FROM users;
+SELECT * FROM funcoesUser;
+
+
+
+DROP DATABASE bancoPI;
+
+```
+
+---
+
+# 🔎 Consultas Básicas
+
+```sql
+SELECT * FROM users;
+SELECT * FROM mentorar;
+SELECT * FROM mentorado;
+SELECT * FROM mensagens;
+```
+
+---
+
+# 📁 Estrutura Sugerida do Projeto
+
+```
+projeto-mentoria
+│
+├── node_modules
+├── src
+│   ├── controllers
+│   ├── routes
+│   ├── database
+│   └── server.js
+│
+├── .env
+├── package.json
+└── README.md
+```
+
+---
+
+# ⚙️ Configuração do `.env`
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=root
+DB_NAME=bancoPI
+```
+
+---
+
+# ▶️ Executando o Projeto
+
+Instale as dependências:
+
+```
+npm install express nodemon bcrypt multer dotenv mysql2 cors
+```
+
+Execute o servidor:
+npm start
+
+
+# 📌 Funcionalidades
+
+* Cadastro de usuários
+* Cadastro de áreas para mentorar
+* Cadastro de áreas para ser mentorado
+* Sistema de mensagens
+* Sistema de pontuação
+
+---
+
+# 👨‍💻 Autor
+
+Projeto desenvolvido para fins acadêmicos (Projeto Integrador).

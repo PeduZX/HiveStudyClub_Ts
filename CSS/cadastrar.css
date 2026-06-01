@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Story+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arimo", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #773bca, #7b3fe4, #522a80, #3a1060, #1a0535);
+  background-size: 300% 300%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bodyFadeIn 0.8s ease-in-out forwards, gradientMove 8s ease-in-out infinite;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #b99eff;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #2a0f4a;
+}
+
+@keyframes bodyFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%;   }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%;   }
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  padding: 48px;
+  width: 100%; 
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+
+#container.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── ASIDE ESQUERDO ── */
+
+.aside-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  max-width: 460px;
+  color: white;
+}
+
+#msg-aside-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+#h2-hive-left {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #b99eff;
+  font-weight: 600;
+}
+
+.h1-mid-left {
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.div-h3-left h3 {
+  font-size: 15px;
+  color: #c0aee8;
+  font-weight: 400;
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+/* bolinhas roxas */
+.li-left-aside ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.li-left-aside li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #ddd4ff;
+}
+
+.li-left-aside li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #a855f7;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── FORMULÁRIO ── */
+
+#container-form {
+  display: flex;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+form h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+form h4 {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+input {
+  background-color: #faf7ff;
+  border-radius: 10px;
+  border: 1.5px solid #e4d9f5;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+input::placeholder {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 400;
+}
+
+input:focus {
+  border-color: #7b3fe4;
+  background: white;
+}
+
+input:hover {
+  border-color: #c4a8ff;
+}
+
+/* campo senha com botão olho */
+.pass-wrap {
+  position: relative;
+}
+
+.pass-wrap input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9980c9;
+  font-size: 18px;
+  padding: 0;
+  line-height: 1;
+}
+
+/* ── ÁREAS DE MENTORIA ── */
+
+.areas-mentoria {
+  border: 1px solid #e4d9f5;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #faf7ff;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.h2-areas-mentoria {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6030b0;
+  letter-spacing: 1.2px;
+}
+
+.mentoria-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.insideMentorado label,
+.insideMentorar label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+select {
+  border-radius: 8px;
+  background-color: white;
+  border: 1.5px solid #ddd0f5;
+  width: 100%;
+  height: 42px;
+  padding-left: 12px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+select:focus {
+  border-color: #7b3fe4;
+}
+
+/* ── BOTÃO E RODAPÉ DO FORM ── */
+
+#btn-cadastrar {
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
+  background: #f5c800;
+  color: #3a1a00;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+#btn-cadastrar:hover {
+  background: #e0b400;
+}
+
+#div-login {
+  text-align: center;
+  font-size: 13px;
+  color: #888;
+}
+
+#a-login {
+  font-size: 15px;
+  color: #7b3fe4;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+#a-login::after {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #7b3fe4;
+  transition: width 0.3s ease-in-out;
+}
+
+#a-login:hover::after {
+  width: 100%;
+}
+
+.div-login-msg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+}

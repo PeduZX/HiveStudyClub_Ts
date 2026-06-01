@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Story+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arimo", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #4201b3, #522a80, #3a0a7e, #3a1060, #1a0535);
+  background-size: 300% 300%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bodyFadeIn 0.8s ease-in-out forwards, gradientMove 8s ease-in-out infinite;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #b99eff;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #2a0f4a;
+}
+
+@keyframes bodyFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%;   }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%;   }
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  padding: 48px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+
+
+#container.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ── ASIDE ESQUERDO ── */
+
+.aside-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  max-width: 460px;
+  color: white;
+}
+
+#msg-aside-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+#h2-hive-left {
+  font-size: 12px;
+  letter-spacing: 4px;
+  background-color: #2a0f4a;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  color: #b99eff;
+  font-weight: 600;
+}
+
+.h1-mid-left {
+  font-family: "Arimo", Helvetica, Arial, sans-serif;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+#h1-down-left {
+  color: #c28dc7;
+}
+
+.div-h3-left h3 {
+  font-size: 15px;
+  color: #c0aee8;
+  font-weight: 400;
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+.span-line {
+  height: 2px;
+  width: 100px;
+  background-color: #9f43ca;
+}
+
+/* bolinhas roxas */
+.li-left-aside ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.li-left-aside li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #ddd4ff;
+}
+
+.li-left-aside li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #a855f7;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── FORMULÁRIO ── */
+
+#container-form {
+  background-color: white;
+  border-radius: 20px;
+  height: 88vh;
+  padding: 36px 36px 28px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.30);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* badge */
+.badge-acesso {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #9b59f5;
+  font-weight: 500;
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: rgba(168, 85, 247, 0.15);
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.form-sub {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 15px;
+  font-family: "Arimo", sans-serif;
+  font-weight: 400;
+}
+
+input {
+  background: #D9D9D9;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.30);
+  width: 30vw;
+  height: 47px;
+  padding-left: 20px;
+  font-weight: 800;
+  border: none;
+  transition: 0.5s;
+}
+
+input::placeholder {
+  font-size: 15px;
+  font-family: "Arimo" sans-serif;
+  font-weight: 300;
+  color: #7C7C7C;
+}
+
+input::placeholder {
+  font-size: 15px;
+  font-family: "Arimo" sans-serif;
+  font-weight: 300;
+  color: #7C7C7C;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 4px 4px 6px #522a80;
+}
+
+input:hover {
+  transform: translate(-5px);
+}
+
+/* campo senha com botão olho */
+.pass-wrap {
+  position: relative;
+}
+
+.pass-wrap input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9980c9;
+  font-size: 18px;
+  padding: 0;
+  line-height: 1;
+}
+
+#btn-cadastrar {
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
+  background: #f5c800;
+  color: #3a1a00;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+
+#btn-cadastrar:hover {
+  background: #e0b400;
+}
+
+.register-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#a-login {
+  text-align: center;
+  font-size: 16px;
+  color: #3e006a;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  display: inline-block;
+  position: relative;
+}
+
+#a-login::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #3e006a;
+  transition: width 0.3s ease-in-out;
+}
+
+#a-login:hover::after {
+  width: 100%;
+}
+
+#a-login:hover {
+  color: #210138;
+}
