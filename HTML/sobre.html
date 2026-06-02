@@ -52,7 +52,7 @@
       <p class="page-sub">Uma plataforma colaborativa feita para quem quer estudar com foco, comunidade e motivação real.</p>
 
       <div class="stats-strip">
-        <div class="stat-pill"><strong>2k+</strong><span>Estudantes ativos</span></div>
+        <div class="stat-pill"><strong id="estudantesAtivos">2k+</strong><span>Estudantes ativos</span></div>
         <div class="stat-pill"><strong>100+</strong><span>online ao diariamente</span></div>
       </div>
     </div>
@@ -134,7 +134,7 @@
     </div>
   </footer>
 
-  <script src="/JS_NAVBAR/script.js"></script>
+  <script src="/cadastro/js-cadastro/script.js"></script>
   <script>
     window.addEventListener('scroll', () => {
       document.getElementById('top-header').classList.toggle('is-scrolled', window.scrollY > 8);
@@ -150,6 +150,8 @@
       });
     }, { threshold: 0.1 });
     cards.forEach(c => io.observe(c));
+
+    UsuariosAtivosSobre();
   </script>
 
 </body>

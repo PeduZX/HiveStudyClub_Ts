@@ -31,19 +31,28 @@ app.post("/register", (req, res) => {
   const { nome, email, dataNasc, senha } = req.body;
 
   bcrypt.hash(senha, 10, (err, hash) => {
-    if (err) return res.status(500).json({ error: "Erro ao criptografar senha" });
+    if (err)
+      return res.status(500).json({ error: "Erro ao criptografar senha" });
 
     db.query(
       "INSERT INTO users (nome, email, data_nasc, senha) VALUES (?, ?, ?, ?)",
       [nome, email, dataNasc, hash],
       (err, result) => {
-        if (err) return res.status(500).json({ error: "Erro ao cadastrar usuário" });
+        if (err)
+          return res.status(500).json({ error: "Erro ao cadastrar usuário" });
 
         const userId = result.insertId;
         const token = jwt.sign({ userId, nome }, SECRET, { expiresIn: "7d" });
 
-        res.status(201).json({ message: "Usuário cadastrado com sucesso!", token, userId, nome });
-      }
+        res
+          .status(201)
+          .json({
+            message: "Usuário cadastrado com sucesso!",
+            token,
+            userId,
+            nome,
+          });
+      },
     );
   });
 });
@@ -56,10 +65,15 @@ app.post("/registerAreas", (req, res) => {
     "INSERT INTO funcoesUser (nomeAreaMentorar, nomeAreaMentorado, users_id) VALUES (?, ?, ?)",
     [nomeAreaMentorar, nomeAreaMentorado, users_id],
     (err, results) => {
-      if (err) return res.status(400).json({ success: false, message: "Erro ao salvar áreas", data: err });
+      if (err)
+        return res
+          .status(400)
+          .json({ success: false, message: "Erro ao salvar áreas", data: err });
 
-      res.status(201).json({ success: true, message: "Áreas salvas com sucesso!" });
-    }
+      res
+        .status(201)
+        .json({ success: true, message: "Áreas salvas com sucesso!" });
+    },
   );
 });
 
@@ -69,22 +83,26 @@ app.post("/login", (req, res) => {
 
   db.query("SELECT * FROM users WHERE email = ?", [email], (err, results) => {
     if (err) return res.status(500).json({ error: "Erro no login" });
-    if (results.length === 0) return res.status(401).json({ error: "Usuário não encontrado" });
+    if (results.length === 0)
+      return res.status(401).json({ error: "Usuário não encontrado" });
 
     const user = results[0];
 
     bcrypt.compare(senha, user.senha, (err, match) => {
-      if (err) return res.status(500).json({ error: "Erro ao verificar senha" });
+      if (err)
+        return res.status(500).json({ error: "Erro ao verificar senha" });
       if (!match) return res.status(401).json({ error: "Senha incorreta" });
 
-      const token = jwt.sign({ userId: user.id, nome: user.nome }, SECRET, { expiresIn: "7d" });
+      const token = jwt.sign({ userId: user.id, nome: user.nome }, SECRET, {
+        expiresIn: "7d",
+      });
 
       res.json({
         message: "Login realizado com sucesso!",
         token,
         userId: user.id,
         nome: user.nome,
-        email: user.email // ← incluído para exibir no perfil
+        email: user.email, // ← incluído para exibir no perfil
       });
     });
   });
@@ -96,18 +114,52 @@ app.put("/editarUser", autenticar, (req, res) => {
   const userId = req.user.userId; // vem do token, não da URL
 
   bcrypt.hash(inputSenha, 10, (err, hash) => {
-    if (err) return res.status(500).json({ error: "Erro ao criptografar senha" });
+    if (err)
+      return res.status(500).json({ error: "Erro ao criptografar senha" });
 
     db.query(
       "UPDATE users SET nome = ?, senha = ? WHERE id = ?",
       [inputNome, hash, userId],
       (err) => {
-        if (err) return res.status(500).json({ error: "Erro ao editar usuário" });
+        if (err)
+          return res.status(500).json({ error: "Erro ao editar usuário" });
 
         res.json({ message: "Usuário editado com sucesso!", nome: inputNome });
-      }
+      },
     );
   });
+});
+
+app.get("/totalUsers", (req, res) => {
+
+  const query = "SELECT COUNT(id) AS total_users FROM users;";
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Erro ao obter total de usuários:", err);
+      return res.status(500).json({ error: "Erro ao obter total de usuários" });
+    }
+
+    res.json({ total_users: results[0].total_users });
+  });
+
+});
+
+
+app.get("/ranking", (req, res) => {
+
+  const query = `SELECT nome, pontos FROM users ORDER BY pontos DESC;`
+
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error("Erro ao obter ranking:", err);
+      return res.status(500).json({ error: "Erro ao obter ranking" });
+    }
+
+    res.json(results);
+
+  });
+
 });
 
 const PORT = 3000;
