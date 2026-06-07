@@ -40,7 +40,8 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL UNIQUE,
     data_nasc DATE NOT NULL,
     senha VARCHAR(255) NOT NULL,
-    pontos INT DEFAULT 0
+    pontos INT DEFAULT 0,
+    fotoPerfil VARCHAR(255)
 );
 
 CREATE TABLE funcoesUser (
@@ -77,6 +78,10 @@ SELECT * FROM funcoesUser;
 
 SELECT COUNT(id) AS total_users FROM users;
 SELECT nome, pontos FROM users ORDER BY pontos DESC;
+SELECT pontos FROM users WHERE id = 49;
+SELECT pontos FROM users WHERE id = 50;
+
+
  
  UPDATE users SET pontos = CASE id
     WHEN 1 THEN 50
@@ -88,6 +93,12 @@ SELECT nome, pontos FROM users ORDER BY pontos DESC;
     WHEN 7 THEN 350
     WHEN 8 THEN 1000 -- Pedro Farenzena
 END;
+
+
+UPDATE users SET pontos = 2000 WHERE id = 52;
+UPDATE users SET senha = 123 WHERE id = 49;
+UPDATE users SET senha = 123 WHERE id = 50;
+
 
 INSERT INTO users (nome, email, data_nasc, senha, pontos) VALUES
 ('Ana Silva','ana.silva@gmail.com','2001-03-15','$2b$10$hash1',120),
@@ -145,6 +156,8 @@ INSERT INTO users (nome, email, data_nasc, senha, pontos) VALUES
 ('Xavier Monteiro','xavier.m@gmail.com','2000-03-07','$2b$10$hash46',495),
 ('Yuri Batista','yuri.b@gmail.com','2001-08-19','$2b$10$hash47',195),
 ('Zilda Fernandes','zilda.f@gmail.com','1997-07-01','$2b$10$hash48',325),
+('Pedro Farenzena','pedro@gmail.com','2000-01-01','$2b$10$hash50',1000),
+('Rosi','rosi@gmail.com','2000-01-01','$2b$10$hash50',900),
 ('Teste Sistema','teste.sistema@gmail.com','2000-01-01','$2b$10$hash50',50);
  
 

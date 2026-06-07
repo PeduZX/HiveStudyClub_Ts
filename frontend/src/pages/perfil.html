@@ -85,9 +85,15 @@
               src="../assets/icons/imagem_user.png"
               alt="Foto do usuário"
               class="avatar-img"
+              id="avatarImg"
             />
+            <!-- botão para trocar a foto -->
             <div class="avatar-badge" title="Trocar foto">
               <i class="ri-camera-line"></i>
+            </div>
+            <!-- botão para deletar a foto -->
+            <div class="avatar-delete" title="Remover foto" onclick="deletarFoto()">
+              <i class="ri-delete-bin-line"></i>
             </div>
           </div>
           <div>
@@ -134,7 +140,7 @@
             <div class="stat-card-icon yellow">
               <i class="ri-trophy-fill"></i>
             </div>
-            <div class="stat-card-value">1.240</div>
+            <div class="stat-card-value" id="pontos">...</div>
             <div class="stat-card-label">Pontos totais</div>
           </div>
           <div class="stat-card">
@@ -152,6 +158,7 @@
             <div class="stat-card-label">Dias seguidos</div>
           </div>
         </div>
+
         <h2 class="section-title" style="font-size: 18px">Conquistas</h2>
         <div class="achievements-grid">
           <div class="achievement-card">
@@ -252,6 +259,7 @@
     </footer>
 
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/perfil.js"></script>
     <script>
       window.addEventListener("load", () => {
         setTimeout(() => {

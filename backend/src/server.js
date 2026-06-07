@@ -3,6 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const db = require("./config/database");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
 
 const SECRET = "sua_chave_secreta_aqui";
 
@@ -161,6 +163,118 @@ app.get("/ranking", (req, res) => {
   });
 
 });
+
+
+app.get("/getPontosUser/:id", (req, res) => {
+
+  const usersId = req.params.id;
+  const query = `SELECT pontos FROM users WHERE id = ?;`;
+
+  db.query(query, [usersId], (err, results) => {
+    if (err) {
+      console.error("Erro ao obter pontos do usuário:", err);
+      return res.status(500).json({ error: "Erro ao obter pontos do usuário" });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: "Usuário não encontrado" });
+    }
+
+    res.json(results[0]);
+  });
+
+});
+
+// define onde salvar e o nome do arquivo
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, "../../frontend/src/uploads"));
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    cb(null, `user_${Date.now()}${ext}`);
+  },
+});
+
+// só aceita imagem
+const upload = multer({
+  storage,
+  fileFilter: (req, file, cb) => {
+    const permitidos = ["image/jpeg", "image/png", "image/webp"];
+    if (permitidos.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Apenas imagens são permitidas"));
+    }
+  },
+});
+
+// rota para upload
+app.post("/uploadFoto/:id", upload.single("fotoPerfil"), (req, res) => {
+  const userId = req.params.id;
+
+  if (!req.file) {
+    return res.status(400).json({ error: "Nenhuma imagem enviada" });
+  }
+
+  const caminho = `uploads/${req.file.filename}`;
+  const query = `UPDATE users SET fotoPerfil = ? WHERE id = ?`;
+
+  db.query(query, [caminho, userId], (err) => {
+    if (err) {
+      console.error("Erro ao salvar foto:", err);
+      return res.status(500).json({ error: "Erro ao salvar foto" });
+    }
+
+    res.json({ fotoPerfil: caminho });
+  });
+});
+
+// expõe a pasta uploads como estática — também corrigido
+app.use("/uploads", express.static(path.join(__dirname, "../../frontend/src/uploads")));
+
+
+// evita de ficar setando a padrão
+app.get("/getUser/:id", (req, res) => {
+  const query = `SELECT nome, email, pontos, fotoPerfil FROM users WHERE id = ?`;
+
+  db.query(query, [req.params.id], (err, results) => {
+    if (err) return res.status(500).json({ error: "Erro ao buscar usuário" });
+    if (results.length === 0) return res.status(404).json({ error: "Usuário não encontrado" });
+
+    res.json(results[0]);
+  });
+});
+
+const fs = require("fs");
+
+// deleta a foto do servidor e limpa o campo no banco
+app.delete("/deletarFoto/:id", (req, res) => {
+  const userId = req.params.id;
+
+  // busca o caminho da foto salvo no banco
+  db.query("SELECT fotoPerfil FROM users WHERE id = ?", [userId], (err, results) => {
+    if (err) return res.status(500).json({ error: "Erro ao buscar foto" });
+    if (results.length === 0) return res.status(404).json({ error: "Usuário não encontrado" });
+
+    const fotoCaminho = results[0].fotoPerfil;
+
+    // se tiver arquivo, deleta fisicamente da pasta uploads
+    if (fotoCaminho) {
+      const caminhoCompleto = path.join(__dirname, "../../frontend/src", fotoCaminho);
+      fs.unlink(caminhoCompleto, (err) => {
+        if (err) console.warn("Arquivo não encontrado ou já deletado:", err.message);
+      });
+    }
+
+    // limpa o campo fotoPerfil no banco
+    db.query("UPDATE users SET fotoPerfil = NULL WHERE id = ?", [userId], (err) => {
+      if (err) return res.status(500).json({ error: "Erro ao deletar foto" });
+      res.json({ message: "Foto deletada com sucesso" });
+    });
+  });
+});
+
 
 const PORT = 3000;
 app.listen(PORT, () => {

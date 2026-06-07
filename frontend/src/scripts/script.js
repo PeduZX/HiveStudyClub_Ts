@@ -420,7 +420,7 @@ async function gerarRanking() {
         <!-- 2nd -->
         <div class="podium-item podium-2nd">
           <div class="podium-avatar">
-            <img src="/assets/icons/imagem_user.png" alt="2º lugar" />
+            <img src="/frontend/src/assets/icons/imagem_user.png" alt="2º lugar" />
             <span class="podium-medal silver"
               ><i class="ri-medal-fill"></i
             ></span>
@@ -434,7 +434,7 @@ async function gerarRanking() {
         <div class="podium-item podium-1st">
           <div class="podium-crown"><i class="ri-vip-crown-fill"></i></div>
           <div class="podium-avatar">
-            <img src="/assets/icons/imagem_user.png" alt="1º lugar" />
+            <img src="/frontend/src/assets/icons/imagem_user.png" alt="1º lugar" />
             <span class="podium-medal gold"><i class="ri-medal-fill"></i></span>
           </div>
           <p class="podium-name">${data[0].nome}</p>
@@ -445,7 +445,7 @@ async function gerarRanking() {
         <!-- 3rd -->
         <div class="podium-item podium-3rd">
           <div class="podium-avatar">
-            <img src="/assets/icons/imagem_user.png" alt="3º lugar" />
+            <img src="/frontend/src/assets/icons/imagem_user.png" alt="3º lugar" />
             <span class="podium-medal bronze"
               ><i class="ri-medal-fill"></i
             ></span>
@@ -575,3 +575,32 @@ async function UsuariosAtivosHome() {
     console.error(err);
   }
 }
+
+
+
+async function carregarPontosPerfil(){
+
+  const id = localStorage.getItem("userId"); // pega o id do usuário logado
+
+  if(!id) return; 
+  
+  try {
+    const resp = await fetch(`http://localhost:3000/getPontosUser/${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await resp.json();
+
+    if (resp.ok) {
+      const pontos = document.getElementById("pontos");
+      if (pontos) {
+        pontos.textContent = data.pontos;
+      }
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+}
+carregarPontosPerfil();
