@@ -154,10 +154,11 @@ main {
 #container-form {
   background-color: white;
   border-radius: 20px;
-  height: 88vh;
+  height: 60vh;
   padding: 36px 36px 28px;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.30);
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 20px;
 }
@@ -242,11 +243,7 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  box-shadow: 4px 4px 6px #522a80;
-}
-
-input:hover {
-  transform: translate(-5px);
+  box-shadow: 2px 2px 2px #a9a8aa;
 }
 
 /* campo senha com botão olho */
