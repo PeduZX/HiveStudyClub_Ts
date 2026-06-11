@@ -201,7 +201,7 @@ function mostrarPopupLogin() {
           border-radius:10px;
           display:flex; align-items:center; justify-content:center;
         ">
-          <img src="/assets/logo/logo.png" alt="Hive" style="width:24px; height:24px; border-radius:6px;" />
+          <img src="../assets/logo/logo.png" alt="Hive" style="width:24px; height:24px; border-radius:6px;" />
         </div>
         <span style="font-family:'Syne',sans-serif; font-size:16px; font-weight:700; color:#f0ca24;">
           Hive Study Club
