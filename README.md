@@ -3,7 +3,7 @@
 <img width="1254" height="347" alt="image" src="https://github.com/user-attachments/assets/67e20782-3265-44bd-88e4-f47b9b986bf3" />
 
 
-## npm i express nodemon dotenv multer bcrypt jsonwebtoken mysql2 cors
+## npm i express nodemon dotenv multer bcrypt jsonwebtoken socket.io mysql2 cors
 
 
 CREATE DATABASE bancoPI; 
