@@ -39,14 +39,6 @@ FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE 
 
 
 
-<img width="500" height="45" alt="image" src="https://github.com/user-attachments/assets/68c28440-aca2-429a-90da-c87dd13f6b27" />
-
-
-
-
-
-
-
 
 
 
