@@ -1,8 +1,3 @@
-// ══════════════════════════════════════════════
-//  serverWebsocket.js — Servidor de Chat em Tempo Real
-//  Hive Study Club — Socket.io + Express + MySQL
-// ══════════════════════════════════════════════
-
 const express    = require('express');
 const http       = require('http');
 const { Server } = require('socket.io');
@@ -25,8 +20,7 @@ const io = new Server(server, {
 app.use(cors());
 app.get('/', (req, res) => res.send('Servidor WebSocket rodando!'));
 
-// ── Valida o token antes de aceitar qualquer conexão ──
-// Mesma lógica do autenticar() do server.js — token com { userId, nome }
+
 io.use((socket, next) => {
   const token = socket.handshake.auth.token;
   if (!token) return next(new Error('Token não enviado'));
@@ -40,9 +34,8 @@ io.use((socket, next) => {
   }
 });
 
-// ══════════════════════════════════════════════
-//  EVENTOS DO SOCKET.IO
-// ══════════════════════════════════════════════
+
+//    SOCKET.IO
 
 io.on('connection', (socket) => {
   console.log(`Usuario conectado: ${socket.user.nome}`);
@@ -52,7 +45,7 @@ io.on('connection', (socket) => {
     socket.join(sala);
     console.log(`${socket.user.nome} entrou na sala: ${sala}`);
 
-    // Busca as últimas 50 mensagens da sala e manda só pra quem entrou
+
     const sql = `
       SELECT m.texto, m.data_envio, m.users_id, u.nome, u.fotoPerfil
       FROM mensagensForum m
@@ -72,7 +65,6 @@ io.on('connection', (socket) => {
   });
 
   // ── 2. Usuário envia uma mensagem ──
-  // userId e nome vêm do token — não do frontend
   socket.on('sendMessage', ({ sala, mensagem }) => {
     if (!mensagem.trim()) return;
 
@@ -106,7 +98,6 @@ io.on('connection', (socket) => {
   });
 });
 
-// Porta 3001 para não conflitar com o servidor principal (porta 3000)
 server.listen(3001, () => {
   console.log('Servidor WebSocket rodando na porta 3001');
 });
