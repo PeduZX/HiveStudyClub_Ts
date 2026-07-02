@@ -28,7 +28,7 @@ function autenticar(req, res, next) {
   }
 }
 
-// Cria o usuário no banco e devolve token + dados
+// Cria o usuário no banco e devolve token e os dados
 app.post("/register", (req, res) => {
   const { nome, email, dataNasc, senha } = req.body;
 
@@ -59,7 +59,6 @@ app.post("/register", (req, res) => {
   });
 });
 
-// Vincula as áreas de mentoria ao usuário recém criado
 app.post("/registerAreas", (req, res) => {
   const { nomeAreaMentorado, nomeAreaMentorar, users_id } = req.body;
 
@@ -79,7 +78,6 @@ app.post("/registerAreas", (req, res) => {
   );
 });
 
-// Valida email e senha, devolve token + dados incluindo email
 app.post("/login", (req, res) => {
   const { email, senha } = req.body;
 
@@ -104,16 +102,16 @@ app.post("/login", (req, res) => {
         token,
         userId: user.id,
         nome: user.nome,
-        email: user.email, // ← incluído para exibir no perfil
+        email: user.email, 
       });
     });
   });
 });
 
-// Atualiza nome e senha — só funciona com token válido no header
+
 app.put("/editarUser", autenticar, (req, res) => {
   const { inputNome, inputSenha } = req.body;
-  const userId = req.user.userId; // vem do token, não da URL
+  const userId = req.user.userId;
 
   bcrypt.hash(inputSenha, 10, (err, hash) => {
     if (err)
@@ -185,7 +183,7 @@ app.get("/getPontosUser/:id", (req, res) => {
 
 });
 
-// define onde salvar e o nome do arquivo
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, "../../frontend/src/uploads"));
@@ -196,7 +194,7 @@ const storage = multer.diskStorage({
   },
 });
 
-// só aceita imagem
+
 const upload = multer({
   storage,
   fileFilter: (req, file, cb) => {
@@ -209,7 +207,6 @@ const upload = multer({
   },
 });
 
-// rota para upload
 app.post("/uploadFoto/:id", upload.single("fotoPerfil"), (req, res) => {
   const userId = req.params.id;
 
@@ -230,11 +227,11 @@ app.post("/uploadFoto/:id", upload.single("fotoPerfil"), (req, res) => {
   });
 });
 
-// expõe a pasta uploads como estática — também corrigido
+
 app.use("/uploads", express.static(path.join(__dirname, "../../frontend/src/uploads")));
 
 
-// evita de ficar setando a padrão
+
 app.get("/getUser/:id", (req, res) => {
   const query = `SELECT nome, email, pontos, fotoPerfil FROM users WHERE id = ?`;
 
@@ -248,18 +245,17 @@ app.get("/getUser/:id", (req, res) => {
 
 const fs = require("fs");
 
-// deleta a foto do servidor e limpa o campo no banco
+
 app.delete("/deletarFoto/:id", (req, res) => {
   const userId = req.params.id;
 
-  // busca o caminho da foto salvo no banco
+
   db.query("SELECT fotoPerfil FROM users WHERE id = ?", [userId], (err, results) => {
     if (err) return res.status(500).json({ error: "Erro ao buscar foto" });
     if (results.length === 0) return res.status(404).json({ error: "Usuário não encontrado" });
 
     const fotoCaminho = results[0].fotoPerfil;
 
-    // se tiver arquivo, deleta fisicamente da pasta uploads
     if (fotoCaminho) {
       const caminhoCompleto = path.join(__dirname, "../../frontend/src", fotoCaminho);
       fs.unlink(caminhoCompleto, (err) => {
@@ -267,7 +263,6 @@ app.delete("/deletarFoto/:id", (req, res) => {
       });
     }
 
-    // limpa o campo fotoPerfil no banco
     db.query("UPDATE users SET fotoPerfil = NULL WHERE id = ?", [userId], (err) => {
       if (err) return res.status(500).json({ error: "Erro ao deletar foto" });
       res.json({ message: "Foto deletada com sucesso" });
