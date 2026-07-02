@@ -1,59 +1,38 @@
 # PI---PROJETO-INTEGRADOR
 
-<img width="1048" height="270" alt="image" src="https://github.com/user-attachments/assets/28f52369-cb2e-48c4-98b8-b12d582a0c8d" />
+<img width="1254" height="347" alt="image" src="https://github.com/user-attachments/assets/67e20782-3265-44bd-88e4-f47b9b986bf3" />
+
 
 ## npm i express nodemon dotenv multer bcrypt jsonwebtoken mysql2 cors
 
 
+CREATE DATABASE bancoPI; 
+USE bancoPI; 
 
-CREATE DATABASE bancoPI;
-USE bancoPI;
-
-
-CREATE TABLE users (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nome VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  data_nasc DATE NOT NULL,
-  senha VARCHAR(255) NOT NULL,
-  pontos INT DEFAULT 0
-  );
-
-
-CREATE TABLE mentorar (	
-  id_area_mentorar INT  PRIMARY KEY AUTO_INCREMENT,
-  nomeAreaMentorar VARCHAR(100) NOT NULL,
-  users_id INT,
-	FOREIGN KEY (users_id) REFERENCES users (id)
+CREATE TABLE users ( 
+id INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255) NOT NULL, 
+email VARCHAR(255) NOT NULL UNIQUE, 
+data_nasc DATE NOT NULL, 
+senha VARCHAR(255) NOT NULL, 
+pontos INT DEFAULT 0, 
+fotoPerfil VARCHAR(255)
 );
 
+CREATE TABLE funcoesUser ( 
+id_area_mentorar INT PRIMARY KEY AUTO_INCREMENT
+, nomeAreaMentorar VARCHAR(100) NOT NULL,
+nomeAreaMentorado VARCHAR(100) NOT NULL, 
+users_id INT,
+FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE );
 
-CREATE TABLE mentorado (
-  id_area_mentorado INT  PRIMARY KEY AUTO_INCREMENT,
-  nomeAreaMentorado VARCHAR(100) NOT NULL,
-  users_id INT ,
-    FOREIGN KEY (users_id) REFERENCES users (id)
-);
-
-
-CREATE TABLE mensagens (
-  id_mensagens  INT PRIMARY KEY NOT NULL,
-  data_envio DATETIME NOT NULL,
-  users_id INT NOT NULL,
-    FOREIGN KEY (users_id) REFERENCES users (id)
-);
-
-
-
-
-SELECT * FROM users;
-SELECT * FROM mentorar;
-SELECT * FROM mentorado;
-
-
-DROP TABLE mentorado;
-DROP TABLE mentorar;
-drop database bancoPI;
+CREATE TABLE mensagensForum (
+id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
+texto TEXT NOT NULL, 
+data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+users_id INT NOT NULL, sala VARCHAR(100) NOT NULL,
+imagem_url VARCHAR(255), 
+FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE );
 
 
 
