@@ -36,6 +36,38 @@ FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE 
 
 
 
+## O Diagram ER foi feito pelo dbdiagram
+
+Table users {
+  id int [pk, increment]
+  nome varchar(255) [not null]
+  email varchar(255) [not null, unique]
+  data_nasc date [not null]
+  senha varchar(255) [not null]
+  pontos int [default: 0]
+  fotoPerfil varchar(255)
+}
+
+Table funcoesUser {
+  id_area_mentorar int [pk, increment]
+  nomeAreaMentorar varchar(100) [not null]
+  nomeAreaMentorado varchar(100) [not null]
+  users_id int
+}
+
+Table mensagensForum {
+  id_mensagem int [pk, increment]
+  texto text [not null]
+  data_envio datetime [default: `CURRENT_TIMESTAMP`]
+  users_id int [not null]
+  sala varchar(100) [not null]
+  imagem_url varchar(255)
+}
+
+Ref: funcoesUser.users_id > users.id [delete: cascade, update: cascade]
+
+Ref: mensagensForum.users_id > users.id [delete: cascade, update: cascade]
+
 
 
 
