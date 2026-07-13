@@ -68,8 +68,6 @@ main {
 }
 
 
-/* ── ASIDE ESQUERDO ── */
-
 .aside-left {
   display: flex;
   flex-direction: column;
@@ -123,7 +121,6 @@ main {
   background-color: #9f43ca;
 }
 
-/* bolinhas roxas */
 .li-left-aside ul {
   list-style: none;
   padding: 0;
@@ -149,12 +146,11 @@ main {
   flex-shrink: 0;
 }
 
-/* ── FORMULÁRIO ── */
 
 #container-form {
   background-color: white;
   border-radius: 20px;
-  height: 60vh;
+  height: fit-content;
   padding: 36px 36px 28px;
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.30);
   display: flex;
@@ -163,7 +159,7 @@ main {
   gap: 20px;
 }
 
-/* badge */
+
 .badge-acesso {
   display: inline-flex;
   align-items: center;
@@ -246,7 +242,6 @@ input:focus {
   box-shadow: 2px 2px 2px #a9a8aa;
 }
 
-/* campo senha com botão olho */
 .pass-wrap {
   position: relative;
 }

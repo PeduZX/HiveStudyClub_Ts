@@ -66,7 +66,6 @@ main {
   transform: translateY(0);
 }
 
-/* ── ASIDE ESQUERDO ── */
 
 .aside-left {
   display: flex;
@@ -105,7 +104,7 @@ main {
   max-width: 380px;
 }
 
-/* bolinhas roxas */
+
 .li-left-aside ul {
   list-style: none;
   padding: 0;
@@ -130,8 +129,6 @@ main {
   border-radius: 50%;
   flex-shrink: 0;
 }
-
-/* ── FORMULÁRIO ── */
 
 #container-form {
   display: flex;
@@ -193,7 +190,6 @@ input:hover {
   border-color: #c4a8ff;
 }
 
-/* campo senha com botão olho */
 .pass-wrap {
   position: relative;
 }
@@ -217,7 +213,6 @@ input:hover {
   line-height: 1;
 }
 
-/* ── ÁREAS DE MENTORIA ── */
 
 .areas-mentoria {
   border: 1px solid #e4d9f5;
@@ -268,7 +263,6 @@ select:focus {
   border-color: #7b3fe4;
 }
 
-/* ── BOTÃO E RODAPÉ DO FORM ── */
 
 #btn-cadastrar {
   width: 100%;

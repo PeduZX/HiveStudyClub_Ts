@@ -1,7 +1,6 @@
-/* ── RESET ── */
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
-/* ── cores padrões ── */
+
 :root {
   --color-purple-darkest: #3e006a;
   --color-purple-dark:    #522a80;
@@ -181,7 +180,7 @@ img { display: block; max-width: 100%; }
 }
  
 /* =============================================
-   PAGE HEADER
+  HEADER
    ============================================= */
 .page-header {
   padding: 110px 5vw 0;
@@ -227,7 +226,6 @@ img { display: block; max-width: 100%; }
   animation: fadeUp .6s ease .3s forwards;
 }
  
-/* ── Stats strip ── */
 .stats-strip {
   display: flex;
   justify-content: center;
@@ -258,9 +256,7 @@ img { display: block; max-width: 100%; }
 }
 .stat-pill span { font-size: 12px; color: var(--color-text-muted); }
  
-/* =============================================
-   SEPARATOR
-   ============================================= */
+
 .sep {
   display: flex; align-items: center; justify-content: center;
   gap: 14px; padding: 0 5vw 56px;
@@ -277,9 +273,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 0 10px var(--color-yellow);
 }
  
-/* =============================================
-   FEATURE CARDS
-   ============================================= */
+
 .cards-wrap {
   max-width: 960px;
   margin: 0 auto;
@@ -322,13 +316,12 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 0 28px rgba(109,40,168,0.45);
 }
  
-/* alternating layout */
+
 .fcard:nth-child(even) { grid-template-columns: 1fr 88px; }
 .fcard:nth-child(even) .fcard-icon { order: 2; }
 .fcard:nth-child(even) .fcard-body { order: 1; }
 .fcard:nth-child(even)::before { left: auto; right: 0; border-radius: 2px 0 0 2px; }
  
-/* accent bar */
 .fcard::before {
   content: '';
   position: absolute;
@@ -396,9 +389,6 @@ img { display: block; max-width: 100%; }
   max-width: 520px;
 }
  
-/* =============================================
-   CTA BANNER
-   ============================================= */
 .cta-section {
   max-width: 960px;
   margin: 60px auto 80px;
@@ -498,7 +488,7 @@ img { display: block; max-width: 100%; }
 .footer-social a:hover { color: var(--color-purple-mid); transform: translateY(-3px); }
  
 /* =============================================
-   ANIMATIONS
+   ANIMAÇÕES
    ============================================= */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
@@ -506,7 +496,7 @@ img { display: block; max-width: 100%; }
 }
  
 /* =============================================
-   RESPONSIVE
+   RESPONSIVO
    ============================================= */
 @media (max-width: 680px) {
   .fcard, .fcard:nth-child(even) {

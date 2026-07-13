@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
-/* ---- RESET ---- */
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ---- TOKENS ---- */
 :root {
   --color-purple-darkest: #3e006a;
   --color-purple-dark:    #522a80;
@@ -163,9 +162,7 @@ img { display: block; max-width: 100%; }
 }
 .signup-btn-menu:hover { background: var(--color-yellow-hover); transform: translateY(-2px); }
 
-/* =============================================
-   BACKGROUND BLOBS
-   ============================================= */
+
 .bg-blob {
   position: fixed; border-radius: 50%;
   filter: blur(90px); pointer-events: none; z-index: 0;
@@ -208,7 +205,6 @@ main {
 .page-title span { color: var(--color-yellow); }
 .page-subtitle { font-size: 15px; color: var(--color-text-muted); max-width: 480px; }
 
-/* ---- Podium ---- */
 .podium {
   display: flex;
   align-items: flex-end;
@@ -269,7 +265,7 @@ main {
 .podium-block--2 { height: 90px;  background: linear-gradient(180deg, rgba(192,192,192,0.15), rgba(192,192,192,0.05)); border: 1px solid rgba(192,192,192,0.2); border-bottom: none; }
 .podium-block--3 { height: 60px;  background: linear-gradient(180deg, rgba(205,127,50,0.15), rgba(205,127,50,0.05)); border: 1px solid rgba(205,127,50,0.2); border-bottom: none; }
 
-/* ---- Ranking list ---- */
+
 .ranking-list {
   width: 100%;
   display: flex; flex-direction: column; gap: 10px;
@@ -364,7 +360,7 @@ main {
 .footer-social a:hover { color: var(--color-purple-mid); transform: translateY(-3px); }
 
 /* =============================================
-   ANIMATIONS
+   ANIMAÇÕES
    ============================================= */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
@@ -376,7 +372,7 @@ main {
 }
 
 /* =============================================
-   RESPONSIVE
+   RESPONSIVO
    ============================================= */
 @media (max-width: 640px) {
   .podium { gap: 8px; }

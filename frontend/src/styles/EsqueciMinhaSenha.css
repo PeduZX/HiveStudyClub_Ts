@@ -1,17 +1,12 @@
-/* =============================================
-   HIVE STUDY CLUB — esqueci-senha.css
-   ============================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
-/* ---- RESET ---- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ---- TOKENS ---- */
+
 :root {
   --color-purple-darkest: #3e006a;
   --color-purple-dark:    #522a80;
@@ -137,7 +132,6 @@ img { display: block; max-width: 100%; }
   border-color: rgba(82,42,128,0.4);
 }
 
-/* Nav overlay */
 .nav-overlay {
   display: none;
   position: fixed;
@@ -152,7 +146,7 @@ img { display: block; max-width: 100%; }
   opacity: 1;
 }
 
-/* Side menu */
+
 .side-menu {
   position: fixed;
   top: 0; right: 0;
@@ -276,7 +270,6 @@ main {
   bottom: 60px; left: -60px;
 }
 
-/* Center wrapper */
 .page-center {
   position: relative;
   z-index: 1;
@@ -284,9 +277,7 @@ main {
   max-width: 460px;
 }
 
-/* =============================================
-   RESET CARD
-   ============================================= */
+
 .reset-card {
   background: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
@@ -306,7 +297,6 @@ main {
   display: none;
 }
 
-/* Icon circle */
 .card-icon-wrap {
   width: 72px;
   height: 72px;
@@ -403,7 +393,6 @@ main {
   box-shadow: 0 0 0 3px rgba(124,58,237,0.12);
 }
 
-/* Primary button */
 .primary-btn {
   display: flex;
   align-items: center;
@@ -429,13 +418,12 @@ main {
 }
 .primary-btn i { font-size: 17px; }
 
-/* Link styled as button */
 .primary-btn--link {
   text-decoration: none;
   margin-top: 4px;
 }
 
-/* Back link */
+
 .card-footer-links {
   width: 100%;
   text-align: center;
@@ -452,10 +440,6 @@ main {
 .back-link i { font-size: 15px; }
 .back-link:hover { color: var(--color-purple-light); }
 
-/* =============================================
-   SUCCESS STATE
-   ============================================= */
-/* Email display pill */
 .email-sent-display {
   padding: 10px 20px;
   background: rgba(167,139,250,0.1);
@@ -467,7 +451,7 @@ main {
   word-break: break-all;
 }
 
-/* Info box */
+
 .info-box {
   display: flex;
   align-items: flex-start;
@@ -489,7 +473,7 @@ main {
   margin-top: 1px;
 }
 
-/* Resend button (inline text button) */
+
 .resend-btn {
   background: none;
   border: none;
@@ -504,7 +488,7 @@ main {
 .resend-btn:hover { color: var(--color-yellow-hover); }
 
 /* =============================================
-   FOOTER — original mantido
+   FOOTER
    ============================================= */
 #site-footer {
   display: flex;
@@ -561,7 +545,7 @@ main {
 }
 
 /* =============================================
-   ANIMATIONS
+   ANIMAÇÕES
    ============================================= */
 @keyframes anim-fade-up {
   from { opacity: 0; transform: translateY(20px); }
@@ -569,7 +553,7 @@ main {
 }
 
 /* =============================================
-   RESPONSIVE
+   RESPONSIVO
    ============================================= */
 @media (max-width: 500px) {
   .reset-card { padding: 32px 22px; }
