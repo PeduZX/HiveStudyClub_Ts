@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
 
-/* ---- RESET ---- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ---- TOKENS ---- */
 :root {
   --color-purple-darkest: #3e006a;
   --color-purple-dark:    #522a80;
@@ -95,14 +93,12 @@ img { display: block; max-width: 100%; }
   letter-spacing: -0.5px;
 }
 
-/* Header right controls */
 .header-controls {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-/* Login button */
 .login-btn {
   padding: 9px 22px;
   background: var(--color-yellow);
@@ -120,7 +116,6 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 6px 20px rgba(240,202,36,0.4);
 }
 
-/* Burger button — always visible */
 .burger-btn {
   background: transparent;
   border: 1px solid rgba(82,42,128,0.2);
@@ -141,7 +136,6 @@ img { display: block; max-width: 100%; }
   border-color: rgba(82,42,128,0.4);
 }
 
-/* ---- Nav overlay ---- */
 .nav-overlay {
   display: none;
   position: fixed;
@@ -156,7 +150,7 @@ img { display: block; max-width: 100%; }
   opacity: 1;
 }
 
-/* ---- Side menu ---- */
+
 .side-menu {
   position: fixed;
   top: 0; right: 0;
@@ -226,7 +220,6 @@ img { display: block; max-width: 100%; }
   transform: translateX(4px);
 }
 
-/* Sign up button inside side menu */
 .signup-btn-menu {
   display: flex;
   justify-content: center;
@@ -265,7 +258,6 @@ img { display: block; max-width: 100%; }
   overflow: hidden;
 }
 
-/* Background decorative blobs */
 .bg-blob {
   position: absolute;
   border-radius: 50%;
@@ -284,7 +276,7 @@ img { display: block; max-width: 100%; }
   bottom: 60px; left: -60px;
 }
 
-/* Hero left text column */
+
 .hero-text {
   position: relative;
   z-index: 1;
@@ -294,7 +286,6 @@ img { display: block; max-width: 100%; }
   animation: anim-fade-up 0.7s ease both;
 }
 
-/* Small tag above title */
 .hero-tag {
   display: inline-flex;
   align-items: center;
@@ -326,7 +317,6 @@ img { display: block; max-width: 100%; }
   max-width: 440px;
 }
 
-/* Hero CTA buttons */
 .hero-buttons {
   display: flex;
   align-items: center;
@@ -369,7 +359,6 @@ img { display: block; max-width: 100%; }
   border-color: rgba(255,255,255,0.35);
 }
 
-/* Hero stats row */
 .hero-stats {
   display: flex;
   align-items: center;
@@ -393,7 +382,6 @@ img { display: block; max-width: 100%; }
   background: rgba(255,255,255,0.12);
 }
 
-/* Hero right image column */
 .hero-image-area {
   position: relative;
   z-index: 1;
@@ -419,7 +407,6 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
 }
 
-/* Floating info chips on hero image */
 .floating-chip {
   position: absolute;
   z-index: 2;
@@ -449,7 +436,7 @@ img { display: block; max-width: 100%; }
 }
 
 /* =============================================
-   FEATURES SECTION (cards)
+   CARDS
    ============================================= */
 .features-section {
   padding: 80px 5vw 100px;
@@ -475,7 +462,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 52px;
 }
 
-/* Features grid */
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -483,7 +470,6 @@ img { display: block; max-width: 100%; }
   text-align: left;
 }
 
-/* Feature card */
 .feature-card {
   background: var(--color-card-bg);
   border: 1px solid var(--color-card-border);
@@ -527,7 +513,6 @@ img { display: block; max-width: 100%; }
   object-fit: contain;
 }
 
-/* Card text */
 .feature-card h3 {
   font-family: var(--font-heading);
   font-size: 16px;
@@ -542,7 +527,7 @@ img { display: block; max-width: 100%; }
   flex: 1;
 }
 
-/* Learn more BTN */
+
 .learn-more-btn {
   display: inline-flex;
   align-items: center;

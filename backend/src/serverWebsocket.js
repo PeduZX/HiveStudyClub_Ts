@@ -5,8 +5,6 @@ const jwt        = require('jsonwebtoken');
 const cors       = require('cors');
 const db         = require('./config/database');
 
-const SECRET = 'sua_chave_secreta_aqui'; // mesma do server.js
-
 const app    = express();
 const server = http.createServer(app);
 
@@ -26,8 +24,8 @@ io.use((socket, next) => {
   if (!token) return next(new Error('Token não enviado'));
 
   try {
-    const decoded = jwt.verify(token, SECRET);
-    socket.user = decoded; // salva { userId, nome } no socket
+    const decoded = jwt.verify(token);
+    socket.user = decoded;
     next();
   } catch {
     next(new Error('Token inválido ou expirado'));
