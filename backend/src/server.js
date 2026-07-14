@@ -6,21 +6,19 @@ const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
 
-const SECRET = "sua_chave_secreta_aqui";
-
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-// Verifica se o token é válido antes de deixar entrar na rota protegida
+
 function autenticar(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader) return res.status(401).json({ error: "Token não enviado" });
 
   const token = authHeader.split(" ")[1];
   try {
-    const decoded = jwt.verify(token, SECRET);
+    const decoded = jwt.verify(token);
     req.user = decoded;
     next();
   } catch {
