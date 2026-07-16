@@ -6,33 +6,139 @@
 ## npm i express nodemon dotenv multer bcrypt jsonwebtoken socket.io mysql2 cors
 
 
-CREATE DATABASE bancoPI; 
-USE bancoPI; 
+CREATE DATABASE bancoPI;
+USE bancoPI;
 
-CREATE TABLE users ( 
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(255) NOT NULL, 
-email VARCHAR(255) NOT NULL UNIQUE, 
-data_nasc DATE NOT NULL, 
-senha VARCHAR(255) NOT NULL, 
-pontos INT DEFAULT 0, 
-fotoPerfil VARCHAR(255)
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_nasc DATE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    pontos INT DEFAULT 0,
+    fotoPerfil VARCHAR(255)
 );
 
-CREATE TABLE funcoesUser ( 
-id_area_mentorar INT PRIMARY KEY AUTO_INCREMENT
-, nomeAreaMentorar VARCHAR(100) NOT NULL,
-nomeAreaMentorado VARCHAR(100) NOT NULL, 
-users_id INT,
-FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE );
+CREATE TABLE funcoesUser (
+    id_area_mentorar INT PRIMARY KEY AUTO_INCREMENT,
+    nomeAreaMentorar VARCHAR(100) NOT NULL,
+    nomeAreaMentorado VARCHAR(100) NOT NULL,
+    users_id INT,
+
+    FOREIGN KEY (users_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
 
 CREATE TABLE mensagensForum (
-id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
-texto TEXT NOT NULL, 
-data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
-users_id INT NOT NULL, sala VARCHAR(100) NOT NULL,
-imagem_url VARCHAR(255), 
-FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE );
+    id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    users_id INT NOT NULL,
+    sala VARCHAR(100) NOT NULL,
+    imagem_url VARCHAR(255),
+
+    FOREIGN KEY (users_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+
+
+SELECT * FROM users;
+SELECT * FROM funcoesUser;
+
+
+SELECT COUNT(id) AS total_users FROM users;
+SELECT nome, pontos FROM users ORDER BY pontos DESC;
+SELECT pontos FROM users WHERE id = 49;
+SELECT pontos FROM users WHERE id = 50;
+
+
+ 
+ UPDATE users SET pontos = CASE id
+    WHEN 1 THEN 50
+    WHEN 2 THEN 100
+    WHEN 3 THEN 150
+    WHEN 4 THEN 200
+    WHEN 5 THEN 250
+    WHEN 6 THEN 300
+    WHEN 7 THEN 350
+    WHEN 8 THEN 1000 -- Pedro Farenzena
+END;
+
+
+UPDATE users SET pontos = 2000 WHERE id = 52;
+UPDATE users SET senha = 123 WHERE id = 49;
+UPDATE users SET senha = 123 WHERE id = 50;
+
+
+INSERT INTO users (nome, email, data_nasc, senha, pontos) VALUES
+('Ana Silva','ana.silva@gmail.com','2001-03-15','$2b$10$hash1',120),
+('Bruno Costa','bruno.costa@gmail.com','1999-07-22','$2b$10$hash2',85),
+('Carla Souza','carla.souza@gmail.com','2002-11-08','$2b$10$hash3',230),
+('Daniel Lima','daniel.lima@gmail.com','2000-01-17','$2b$10$hash4',175),
+('Eduarda Rocha','eduarda.rocha@gmail.com','2003-05-29','$2b$10$hash5',90),
+('Felipe Alves','felipe.alves@gmail.com','1998-09-13','$2b$10$hash6',310),
+('Gabriela Martins','gabriela.m@gmail.com','2001-12-04','$2b$10$hash7',450),
+('Henrique Santos','henrique.s@gmail.com','1997-04-18','$2b$10$hash8',270),
+('Isabela Ferreira','isabela.f@gmail.com','2002-08-26','$2b$10$hash9',380),
+('João Oliveira','joao.o@gmail.com','2000-10-10','$2b$10$hash10',140),
+
+('Karen Lopes','karen.l@gmail.com','2001-06-11','$2b$10$hash11',220),
+('Lucas Pereira','lucas.p@gmail.com','1999-02-03','$2b$10$hash12',510),
+('Mariana Gomes','mariana.g@gmail.com','2003-07-14','$2b$10$hash13',300),
+('Nicolas Dias','nicolas.d@gmail.com','2002-01-27','$2b$10$hash14',110),
+('Olivia Castro','olivia.c@gmail.com','2001-09-09','$2b$10$hash15',260),
+('Paulo Ribeiro','paulo.r@gmail.com','1998-12-21','$2b$10$hash16',190),
+('Quezia Mendes','quezia.m@gmail.com','2000-05-02','$2b$10$hash17',340),
+('Rafael Teixeira','rafael.t@gmail.com','1999-11-30','$2b$10$hash18',410),
+('Sara Almeida','sara.a@gmail.com','2002-03-19','$2b$10$hash19',95),
+('Thiago Barros','thiago.b@gmail.com','2001-04-25','$2b$10$hash20',280),
+
+('Ursula Nunes','ursula.n@gmail.com','2000-06-16','$2b$10$hash21',135),
+('Vinicius Melo','vinicius.m@gmail.com','1997-08-05','$2b$10$hash22',370),
+('Wagner Cardoso','wagner.c@gmail.com','1998-10-12','$2b$10$hash23',245),
+('Yasmin Farias','yasmin.f@gmail.com','2003-01-08','$2b$10$hash24',460),
+('Zeca Araujo','zeca.a@gmail.com','1999-09-28','$2b$10$hash25',155),
+
+('Amanda Freitas','amanda.f@gmail.com','2001-02-14','$2b$10$hash26',330),
+('Bianca Moraes','bianca.m@gmail.com','2002-04-22','$2b$10$hash27',205),
+('Caio Vieira','caio.v@gmail.com','2000-07-31','$2b$10$hash28',420),
+('Diego Pires','diego.p@gmail.com','1998-03-09','$2b$10$hash29',175),
+('Elisa Duarte','elisa.d@gmail.com','2001-11-27','$2b$10$hash30',295),
+
+('Fernando Cunha','fernando.c@gmail.com','1997-12-15','$2b$10$hash31',500),
+('Giovana Reis','giovana.r@gmail.com','2003-06-20','$2b$10$hash32',145),
+('Hugo Tavares','hugo.t@gmail.com','1999-05-18','$2b$10$hash33',265),
+('Iara Campos','iara.c@gmail.com','2002-02-01','$2b$10$hash34',390),
+('Juliano Antunes','juliano.a@gmail.com','2000-08-17','$2b$10$hash35',180),
+
+('Larissa Pinto','larissa.p@gmail.com','2001-01-29','$2b$10$hash36',355),
+('Mateus Correia','mateus.c@gmail.com','1998-11-06','$2b$10$hash37',470),
+('Natália Borges','natalia.b@gmail.com','2002-07-23','$2b$10$hash38',125),
+('Otávio Ramos','otavio.r@gmail.com','1999-04-11','$2b$10$hash39',315),
+('Priscila Machado','priscila.m@gmail.com','2003-09-05','$2b$10$hash40',210),
+
+('Rodrigo Peixoto','rodrigo.p@gmail.com','2000-12-28','$2b$10$hash41',430),
+('Sofia Rezende','sofia.r@gmail.com','2001-10-16','$2b$10$hash42',160),
+('Túlio Fonseca','tulio.f@gmail.com','1998-06-30','$2b$10$hash43',285),
+('Valentina Coelho','valentina.c@gmail.com','2002-05-13','$2b$10$hash44',375),
+('Willian Braga','willian.b@gmail.com','1999-01-24','$2b$10$hash45',240),
+
+('Xavier Monteiro','xavier.m@gmail.com','2000-03-07','$2b$10$hash46',495),
+('Yuri Batista','yuri.b@gmail.com','2001-08-19','$2b$10$hash47',195),
+('Zilda Fernandes','zilda.f@gmail.com','1997-07-01','$2b$10$hash48',325),
+('Pedro Farenzena','pedro@gmail.com','2000-01-01','$2b$10$hash50',1000),
+('Rosi','rosi@gmail.com','2000-01-01','$2b$10$hash50',900),
+('Teste Sistema','teste.sistema@gmail.com','2000-01-01','$2b$10$hash50',50);
+ 
+
+SET SQL_SAFE_UPDATES = 0;
+DROP DATABASE bancoPI;
+
 
 
 
