@@ -284,7 +284,7 @@ function mostrarPopupLogin() {
 }
 
 // ========================
-// Inicializa o site (navbar + cards)
+// Inicializa o site
 // ========================
 function inicializarSite() {
   const topHeader = document.getElementById("top-header");
@@ -383,7 +383,6 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// ========================
 
 // =========================
 //RANKING

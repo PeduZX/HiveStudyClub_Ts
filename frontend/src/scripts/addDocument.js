@@ -13,12 +13,11 @@ function btnCliclick() {
     inputAddDocument.style.padding = "0";
   }
 
-  // DPS COM O BACK fazer O UPLOAD DO ARQUIVO e enciar
   inputAddDocument.addEventListener("change", function () {
     if (inputAddDocument.files.length > 0) {
       
       const nomeArquivo = inputAddDocument.files[0].name;
-      inputSubmit.value = `📎 ${nomeArquivo}`;
+      inputSubmit.value = ` ${nomeArquivo}`;
     }
   });
 }

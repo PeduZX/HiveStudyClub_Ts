@@ -74,7 +74,6 @@ img { display: block; max-width: 100%; }
   justify-content: space-between;
 }
 
-/* Brand / Logo */
 .brand-link {
   display: flex;
   align-items: center;
@@ -242,9 +241,6 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 6px 20px rgba(240,202,36,0.4);
 }
 
-/* =============================================
-   HERO SECTION
-   ============================================= */
 .hero-section {
   position: relative;
   min-height: 100vh;

@@ -45,7 +45,6 @@ document.querySelector(".avatar-badge").addEventListener("click", () => {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
-          // não coloca Content-Type aqui, o browser define sozinho pro multipart/form-data
         },
         body: formData,
       });
@@ -62,7 +61,6 @@ document.querySelector(".avatar-badge").addEventListener("click", () => {
   });
 });
 
-// remove a foto de perfil e volta para a imagem padrão
 async function deletarFoto() {
   const id = localStorage.getItem("userId");
   if (!id) return;

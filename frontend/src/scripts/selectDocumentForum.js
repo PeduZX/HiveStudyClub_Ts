@@ -66,7 +66,6 @@ function clearFile() {
 fileInput.addEventListener('change', () => { if (fileInput.files.length) setFile(fileInput.files[0]); });
 previewRemove.addEventListener('click', clearFile);
 
-// Drag & drop
 dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
 dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
 dropZone.addEventListener('drop', e => {
@@ -76,7 +75,6 @@ dropZone.addEventListener('drop', e => {
   if (file) setFile(file);
 });
 
-// Enviar arquivo — aparece como mensagem na tela (upload real vem depois)
 uploadSend.addEventListener('click', () => {
   if (!selectedFile) return;
 
