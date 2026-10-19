@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const palavraJWT = require("./config/auth");
 const db = require("./config/database");
 const cors = require("cors");
 const multer = require("multer");
@@ -11,7 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-const palavraJWT = "Chave_do_jwt";
 
 function autenticar(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -27,7 +27,6 @@ function autenticar(req, res, next) {
   }
 }
 
-// Cria o usuário no banco e devolve token e os dados
 app.post("/register", (req, res) => {
   const { nome, email, data_nasc, senha } = req.body;
 
@@ -175,6 +174,7 @@ app.get("/getPontosUser/:id", (req, res) => {
   });
 });
 
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, "../../frontend/src/uploads"));
@@ -270,6 +270,18 @@ app.delete("/deletarFoto/:id", (req, res) => {
           res.json({ message: "Foto deletada com sucesso" });
         },
       );
+    },
+  );
+});
+
+app.get("/getAreas/:id", (req, res) => {
+  const userId = req.params.id;
+
+  db.query("SELECT nomeAreaMentorar, nomeAreaMentorado FROM funcoesUser WHERE users_id = ?",
+    [userId], (err, results) => {
+      if (err)
+        return res.status(500).json({ error: "Erro ao buscar áreas" });
+      res.json(results);
     },
   );
 });

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suporte — Hive Study Club</title>
     <link rel="stylesheet" href="../styles/suporte.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+
     <link rel="icon" type="image/png" href="../assets/logo/logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   </head>
   <body>
 
-    <!-- HEADER -->
     <header id="siteHeader">
       <div class="headerInner">
         <a href="index.html" class="logoLink">
@@ -32,6 +33,7 @@
         <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
         <ul class="navList">
           <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
+          <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
           <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
           <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
           <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
@@ -43,14 +45,14 @@
 
     <main>
 
-      <!-- BLOBS decorativos -->
+      
       <div class="bg-blob bg-blob--purple"></div>
       <div class="bg-blob bg-blob--yellow"></div>
 
-      <!-- Seção de contato -->
+      
       <section class="support-section">
 
-        <!-- Lado esquerdo: texto + info cards -->
+        
         <div class="support-info">
           <div class="support-tag"><i class="ri-customer-service-2-line"></i> Suporte</div>
           <h1 class="support-title">
@@ -86,7 +88,7 @@
           </div>
         </div>
 
-        <!-- Lado direito: formulário -->
+        
         <div class="support-form-wrap">
           <form class="support-form" id="supportForm">
 
@@ -126,7 +128,7 @@
               Enviar mensagem <i class="ri-send-plane-line"></i>
             </button>
 
-            <!-- Feedback de envio -->
+            
             <div class="form-success" id="formSuccess">
               <i class="ri-checkbox-circle-line"></i>
               Mensagem enviada! Em breve entraremos em contato.
@@ -138,7 +140,7 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    
     <footer id="site-footer">
       <div class="footer-links">
         <a href="login.html">Login</a>
@@ -154,7 +156,6 @@
     </footer>
 
     <script>
-      // Form submit feedback
       document.getElementById('supportForm').addEventListener('submit', function(e) {
         e.preventDefault();
         document.getElementById('formSuccess').classList.add('is-visible');
@@ -164,6 +165,6 @@
         }, 4000);
       });
     </script>
-      <script src="../scripts/script.js"></script>
+      <script src="../scripts/navbar.js"></script>
   </body>
 </html>

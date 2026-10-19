@@ -534,10 +534,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 4px 14px rgba(240,202,36,0.35);
 }
 
-/* =============================================
-   SEÇÃO "SOBRE" (adaptada da página sobre.html
-   para uso dentro da home)
-   ============================================= */
+
 
 .pageHeaderHome {
   padding: 40px 5vw 0;

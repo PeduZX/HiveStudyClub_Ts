@@ -6,47 +6,49 @@
   <title>Chat — Hive Study Club</title>
   <link rel="icon" type="image/png" href="../assets/logo/logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/header.css" />
+
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles/chatConversa.css" />
 </head>
 <body>
 
-  <!-- ══ HEADER ══ -->
-
+  
   <header id="siteHeader">
-    <div class="headerInner">
-      <a href="index.html" class="logoLink">
-        <img class="logoImg" src="../assets/logo/logo.png" alt="Hive Study Club logo" />
-        <span class="logoText">Hive Study Club</span>
-      </a>
-      <div class="headerActions">
-        <a href="login.html" class="btnLogin">Faça Login</a>
-        <button class="menuToggle" id="menuToggle" aria-label="Abrir menu">
-          <i class="ri-menu-3-line" id="menuToggleIcon"></i>
-        </button>
+      <div class="headerInner">
+        <a href="index.html" class="logoLink">
+          <img class="logoImg" src="../assets/logo/logo.png" alt="Hive Study Club logo" />
+          <span class="logoText">Hive Study Club</span>
+        </a>
+        <div class="headerActions">
+          <a href="login.html" class="btnLogin">Faça Login</a>
+          <button class="menuToggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="ri-menu-3-line" id="menuToggleIcon"></i>
+          </button>
+        </div>
       </div>
-    </div>
 
-    <div class="menuOverlay" id="menuOverlay"></div>
+      <div class="menuOverlay" id="menuOverlay"></div>
 
-    <nav class="navDrawer" id="navDrawer">
-      <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
-      <ul class="navList">
-        <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
-        <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
-        <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
-        <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
-        <li><a href="perfil.html"><i class="ri-user-line"></i><span>PERFIL</span></a></li>
-      </ul>
-      <a href="cadastrar.html" class="btnSignupMenu">CADASTRE-SE</a>
-    </nav>
-  </header>
+      <nav class="navDrawer" id="navDrawer">
+        <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
+        <ul class="navList">
+          <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
+          <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
+          <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
+          <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
+          <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
+          <li><a href="perfil.html"><i class="ri-user-line"></i><span>PERFIL</span></a></li>
+        </ul>
+        <a href="cadastrar.html" class="btnSignupMenu">CADASTRE-SE</a>
+      </nav>
+    </header>
 
-  <!-- ══ MAIN ══ -->
+  
   <main>
     <div id="container">
 
-      <!-- Topbar do chat -->
+      
       <div class="chat-topbar">
         <div class="chat-topbar-left">
           <div class="chat-topbar-icon">
@@ -59,7 +61,7 @@
         </div>
       </div>
 
-      <!-- Área de mensagens -->
+      
       <div id="messages-area">
         <div class="chat-empty">
           <div class="chat-empty-icon"><i class="ri-chat-3-line"></i></div>
@@ -68,19 +70,13 @@
         </div>
       </div>
 
-      <!-- Barra de input -->
+      
       <div class="input-bar">
         <button id="btn-add-document" title="Anexar arquivo">
           <i class="ri-attachment-2"></i>
         </button>
 
-        <!-- Chip do arquivo selecionado -->
-        <div class="file-chip" id="file-chip">
-          <i class="ri-file-line"></i>
-          <span class="file-chip-name" id="file-chip-name"></span>
-          <i class="ri-close-line file-chip-remove" id="file-chip-remove"></i>
-        </div>
-
+        
         <input
           type="text"
           id="input-submit"
@@ -96,11 +92,11 @@
     </div>
   </main>
 
-  <!-- ══ UPLOAD POPUP ══ -->
+  
   <div class="upload-overlay" id="uploadOverlay">
     <div class="upload-modal">
 
-      <!-- Header do modal -->
+      
       <div class="upload-modal-header">
         <div class="upload-modal-title">
           <i class="ri-upload-cloud-2-line"></i>
@@ -111,24 +107,25 @@
         </button>
       </div>
 
-      <!-- Drop zone -->
+      
       <div class="drop-zone" id="dropZone">
-        <input type="file" id="input-add-document" />
+        <input type="file" id="input-add-document" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.gif,.webp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/*" />
         <div class="drop-icon"><i class="ri-file-upload-line"></i></div>
         <h4>Arraste um arquivo aqui</h4>
         <p>ou <span>clique para selecionar</span> do seu dispositivo</p>
       </div>
 
-      <!-- Tipos suportados -->
+      
       <div class="file-types">
         <span class="file-type-tag">PDF</span>
         <span class="file-type-tag">DOCX</span>
-        <span class="file-type-tag">XLSX</span>
+        <span class="file-type-tag">DOC</span>
         <span class="file-type-tag">PNG</span>
         <span class="file-type-tag">JPG</span>
+        <span class="file-type-tag">WEBP</span>
       </div>
 
-      <!-- Preview do arquivo selecionado -->
+      
       <div class="upload-preview" id="uploadPreview">
         <div class="preview-file-icon">
           <i class="ri-file-line" id="previewIcon"></i>
@@ -142,7 +139,7 @@
         </button>
       </div>
 
-      <!-- Footer do modal -->
+      
       <div class="upload-modal-footer">
         <button class="upload-cancel-btn" id="uploadCancel">Cancelar</button>
         <button class="upload-send-btn" id="uploadSend">
@@ -156,7 +153,7 @@
 
 
 
-  <script src="../scripts/script.js"></script>
+  <script src="../scripts/navbar.js"></script>
   <script src="http://localhost:3001/socket.io/socket.io.js"></script>
   <script src="../scripts/selectDocumentForum.js"></script>
   <script src="../scripts/scriptForum.js"></script>

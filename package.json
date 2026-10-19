@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
-  "scripts": {
-    "start": "nodemon backend/src/server.js",
-    "dev": "nodemon backend/src/serverWebsocket.js"
-  },
+"scripts": {
+  "start": "concurrently -k \"npm:api\" \"npm:websocket\"",
+  "api": "nodemon backend/src/server.js",
+  "websocket": "nodemon backend/src/serverWebsocket.js"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PeduZX/PI_PROJETO-INTEGRADOR.git"
@@ -24,10 +25,14 @@
     "corss": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "fastest-levenshtein": "^1.0.16",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
     "mysql2": "^3.24.2",
     "nodemon": "^3.1.14",
     "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
   }
 }

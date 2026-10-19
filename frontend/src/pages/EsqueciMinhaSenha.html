@@ -5,39 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Esqueci minha senha — Hive Study Club</title>
     <link rel="stylesheet" href="../styles/EsqueciMinhaSenha.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+
     <link rel="icon" type="image/png" href="../assets/logo/logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   </head>
   <body>
 
-       <!-- HEADER -->
-    <header id="top-header">
-      <div class="header-wrapper">
-        <a href="index.html" class="brand-link">
-          <img class="brand-logo" src="../assets/logo/logo.png" alt="Hive Study Club logo" />
-          <span class="brand-name">Hive Study Club</span>
+       
+    <header id="siteHeader">
+      <div class="headerInner">
+        <a href="index.html" class="logoLink">
+          <img class="logoImg" src="../assets/logo/logo.png" alt="Hive Study Club logo" />
+          <span class="logoText">Hive Study Club</span>
         </a>
-        <div class="header-controls">
-          <a href="login.html" class="login-btn">Faça Login</a>
-          <button class="burger-btn" id="burgerBtn" aria-label="Abrir menu">
-            <i class="ri-menu-3-line" id="burgerIcon"></i>
+        <div class="headerActions">
+          <a href="login.html" class="btnLogin">Faça Login</a>
+          <button class="menuToggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="ri-menu-3-line" id="menuToggleIcon"></i>
           </button>
         </div>
       </div>
 
-      <div class="nav-overlay" id="navOverlay"></div>
+      <div class="menuOverlay" id="menuOverlay"></div>
 
-      <nav class="side-menu" id="sideMenu">
-        <button class="close-menu-btn" id="closeMenuBtn"><i class="ri-close-line"></i></button>
-        <ul class="menu-list">
+      <nav class="navDrawer" id="navDrawer">
+        <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
+        <ul class="navList">
           <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
           <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
           <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
           <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
           <li><a href="perfil.html"><i class="ri-user-line"></i><span>PERFIL</span></a></li>
         </ul>
-        <a href="cadastrar.html" class="signup-btn-menu">CADASTRE-SE</a>
+        <a href="cadastrar.html" class="btnSignupMenu">CADASTRE-SE</a>
       </nav>
     </header>
     <main>
@@ -46,7 +48,7 @@
 
       <div class="page-center">
 
-        <!-- Passo 1: digitar e-mail -->
+        
         <div class="reset-card" id="step-email">
           <div class="card-icon-wrap">
             <i class="ri-lock-password-line"></i>
@@ -81,7 +83,7 @@
           </div>
         </div>
 
-        <!-- Passo 2: confirmação de envio -->
+        
         <div class="reset-card reset-card--hidden" id="step-success">
           <div class="card-icon-wrap card-icon-wrap--green">
             <i class="ri-mail-send-line"></i>
@@ -92,7 +94,7 @@
           </p>
 
           <div class="email-sent-display" id="emailSentDisplay">
-            <!-- preenchido via JS -->
+            
           </div>
 
           <div class="info-box">
@@ -108,7 +110,7 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
+    
     <footer id="site-footer">
       <div class="footer-links">
         <a href="login.html">Login</a>
@@ -124,20 +126,6 @@
     </footer>
 
     <script>
-      // ---- Header ----
-      const topHeader    = document.getElementById('top-header');
-      const burgerBtn    = document.getElementById('burgerBtn');
-      const sideMenu     = document.getElementById('sideMenu');
-      const navOverlay   = document.getElementById('navOverlay');
-      const closeMenuBtn = document.getElementById('closeMenuBtn');
-      const burgerIcon   = document.getElementById('burgerIcon');
-
-      window.addEventListener('scroll', () => {
-        topHeader.classList.toggle('is-scrolled', window.scrollY > 20);
-      });
-
-
-      // ---- Formulário ----
       const stepEmail   = document.getElementById('step-email');
       const stepSuccess = document.getElementById('step-success');
       const emailInput  = document.getElementById('input-email');
@@ -151,7 +139,6 @@
         stepSuccess.classList.remove('reset-card--hidden');
       });
 
-      // Reenviar
       let resendCooldown = false;
       document.getElementById('resendBtn').addEventListener('click', function() {
         if (resendCooldown) return;

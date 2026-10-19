@@ -1,39 +1,39 @@
-      const topHeader    = document.getElementById('top-header');
-      const burgerBtn    = document.getElementById('burgerBtn');
-      const sideMenu     = document.getElementById('sideMenu');
-      const navOverlay   = document.getElementById('navOverlay');
-      const closeMenuBtn = document.getElementById('closeMenuBtn');
-      const burgerIcon   = document.getElementById('burgerIcon');
+const loginButton = document.querySelector(".btnLogin");
+if (loginButton) {
+  const token = localStorage.getItem("token");
+  const nome = localStorage.getItem("nome");
+  loginButton.textContent = token && nome ? nome : "Faça Login";
+  loginButton.href = token && nome ? "perfil.html" : "login.html";
+}
+const siteHeader = document.getElementById("siteHeader");
+const menuToggle = document.getElementById("menuToggle");
+const navDrawer = document.getElementById("navDrawer");
+const menuOverlay = document.getElementById("menuOverlay");
+const menuCloseBtn = document.getElementById("menuCloseBtn");
+const menuToggleIcon = document.getElementById("menuToggleIcon");
 
-      window.addEventListener('scroll', () => {
-        topHeader.classList.toggle('is-scrolled', window.scrollY > 20);
-      });
+if (siteHeader && menuToggle && navDrawer && menuOverlay && menuCloseBtn && menuToggleIcon) {
+  window.addEventListener("scroll", () => {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 20);
+  });
 
-      function openMenu() {
-        sideMenu.classList.add('is-open');
-        navOverlay.classList.add('is-open');
-        burgerIcon.className = 'ri-close-line';
-        document.body.style.overflow = 'hidden';
-      }
-      function closeMenu() {
-        sideMenu.classList.remove('is-open');
-        navOverlay.classList.remove('is-open');
-        burgerIcon.className = 'ri-menu-3-line';
-        document.body.style.overflow = '';
-      }
+  function closeMenu() {
+    navDrawer.classList.remove("is-open");
+    menuOverlay.classList.remove("is-open");
+    menuToggleIcon.className = "ri-menu-3-line";
+    document.body.style.overflow = "";
+  }
 
-      burgerBtn.addEventListener('click', () =>
-        sideMenu.classList.contains('is-open') ? closeMenu() : openMenu()
-      );
-      closeMenuBtn.addEventListener('click', closeMenu);
-      navOverlay.addEventListener('click', closeMenu);
+  function openMenu() {
+    navDrawer.classList.add("is-open");
+    menuOverlay.classList.add("is-open");
+    menuToggleIcon.className = "ri-close-line";
+    document.body.style.overflow = "hidden";
+  }
 
-      const featureCards = document.querySelectorAll('.feature-card');
-      const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => entry.target.classList.add('is-visible'), i * 100);
-          }
-        });
-      }, { threshold: 0.1 });
-      featureCards.forEach(card => cardObserver.observe(card));
+  menuToggle.addEventListener("click", () =>
+    navDrawer.classList.contains("is-open") ? closeMenu() : openMenu(),
+  );
+  menuCloseBtn.addEventListener("click", closeMenu);
+  menuOverlay.addEventListener("click", closeMenu);
+}

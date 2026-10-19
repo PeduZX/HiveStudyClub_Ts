@@ -1,10 +1,51 @@
-# PI---PROJETO-INTEGRADOR
+# 📚 Plataforma de Mentoria
 
-<img width="1254" height="347" alt="image" src="https://github.com/user-attachments/assets/67e20782-3265-44bd-88e4-f47b9b986bf3" />
+Sistema desenvolvido em **Node.js** com **MySQL** para conectar pessoas que desejam **mentorar** com pessoas que desejam **ser mentoradas**.
+A aplicação permite cadastro de usuários, definição de áreas de mentoria e armazenamento de mensagens.
 
+---
 
-## npm i express nodemon dotenv multer bcrypt jsonwebtoken socket.io mysql2 cors
+# 🚀 Tecnologias Utilizadas
 
+* Node.js
+* Express.js
+* MySQL
+* Nodemon
+* Dotenv
+* Bcrypt
+* CORS
+
+---
+
+# 📦 Instalação das Dependências
+
+Execute o comando abaixo para instalar as dependências do projeto:
+
+```bash
+npm i express nodemon dotenv multer bcrypt jsonwebtoken socket.io mysql2 cors
+npm i fastest-levenshtein
+npm install --save-dev concurrently
+```
+```
+"dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "corss": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "fastest-levenshtein": "^1.0.16",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.2.0",
+    "mysql2": "^3.22.6",
+    "nodemon": "^3.1.14",
+    "socket.io": "^4.8.3"
+  }
+```
+---
+
+# 🗄️ Banco de Dados
+
+## Criar Banco
 
 CREATE DATABASE bancoPI;
 USE bancoPI;
@@ -140,47 +181,75 @@ SET SQL_SAFE_UPDATES = 0;
 DROP DATABASE bancoPI;
 
 
+```
+
+---
+
+# 🔎 Consultas Básicas
+
+```sql
+SELECT * FROM users;
+SELECT * FROM mentorar;
+SELECT * FROM mentorado;
+SELECT * FROM mensagens;
+```
+
+---
+
+# 📁 Estrutura Sugerida do Projeto
+
+```
+projeto-mentoria
+│
+├── node_modules
+├── src
+│   ├── controllers
+│   ├── routes
+│   ├── database
+│   └── server.js
+│
+├── .env
+├── package.json
+└── README.md
+```
+
+---
+
+# ⚙️ Configuração do `.env`
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=root
+DB_NAME=bancoPI
+```
+
+---
+
+# ▶️ Executando o Projeto
+
+Instale as dependências:
+
+```
+npm install express nodemon bcrypt multer dotenv mysql2 cors
+```
+
+Execute o servidor:
+npm start
 
 
-## O Diagram ER foi feito pelo dbdiagram
+# 📌 Funcionalidades
 
-Table users {
-  id int [pk, increment]
-  nome varchar(255) [not null]
-  email varchar(255) [not null, unique]
-  data_nasc date [not null]
-  senha varchar(255) [not null]
-  pontos int [default: 0]
-  fotoPerfil varchar(255)
-}
+* Cadastro de usuários
+* Cadastro de áreas para mentorar
+* Cadastro de áreas para ser mentorado
+* Sistema de mensagens
+* Sistema de pontuação
 
-Table funcoesUser {
-  id_area_mentorar int [pk, increment]
-  nomeAreaMentorar varchar(100) [not null]
-  nomeAreaMentorado varchar(100) [not null]
-  users_id int
-}
+---
 
-Table mensagensForum {
-  id_mensagem int [pk, increment]
-  texto text [not null]
-  data_envio datetime [default: `CURRENT_TIMESTAMP`]
-  users_id int [not null]
-  sala varchar(100) [not null]
-  imagem_url varchar(255)
-}
+# 👨‍💻 Autor
 
-Ref: funcoesUser.users_id > users.id [delete: cascade, update: cascade]
-
-Ref: mensagensForum.users_id > users.id [delete: cascade, update: cascade]
-
-
-
-
-
-
-
-
-
-
-
+Projeto desenvolvido para fins acadêmicos (Projeto Integrador).

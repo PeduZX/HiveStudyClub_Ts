@@ -6,31 +6,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHAT</title>
   <link rel="stylesheet" href="../../styles/chats/chat-natureza.css">
+    <link rel="stylesheet" href="../../styles/header.css" />
+
   <link rel="icon" type="image/png" href="../../assets/logo/logo.png" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
 <body>
-    <header>
-    <img class="logo" src="../../assets/logo/logo.png" alt="logo" />
-    <div id="div-menu-line" class="div-menu-line">
-      <i id="barra-nav" class="ri-menu-line"></i>
+    <header id="siteHeader">
+      <div class="headerInner">
+        <a href="index.html" class="logoLink">
+          <img class="logoImg" src="../assets/logo/logo.png" alt="Hive Study Club logo" />
+          <span class="logoText">Hive Study Club</span>
+        </a>
+        <div class="headerActions">
+          <a href="login.html" class="btnLogin">Faça Login</a>
+          <button class="menuToggle" id="menuToggle" aria-label="Abrir menu">
+            <i class="ri-menu-3-line" id="menuToggleIcon"></i>
+          </button>
+        </div>
       </div>
-      <div id="div-close" class="div-close">
-        <i id="close-nav" class="ri-close-line"></i>
-      </div>
-    
-    <nav id="nav-header" class="nav-header">
-      <ul id="ul-nav">
-        <li class="li-nav"><a href="../index.html"><i id="i-nav" class="ri-home-2-line"></i>HOME</a></li>
-        <li class="li-nav"><a href="../sobre.html"><i id="i-nav" class="ri-file-marked-line"></i>SOBRE PROJETO</a></li>
-        <li class="li-nav"><a href="../forum.html"><i id="i-nav" class="ri-question-answer-fill"></i>CHAT</a></li>
-        <li class="li-nav"><a href="../suporte.html"><i id="i-nav" class="ri-phone-line"></i>SUPORTE</a></li>
-        <li class="li-nav"><a href="../ranking.html"><i id="i-nav" class="ri-trophy-line"></i>RANKING</a></li>
-        <li class="li-nav"><a href="../perfil.html"><i id="i-nav" class="ri-user-line"></i>PERFIL</a></li>
-      </ul>
-    </nav>
-  </header>
+
+      <div class="menuOverlay" id="menuOverlay"></div>
+
+      <nav class="navDrawer" id="navDrawer">
+        <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
+        <ul class="navList">
+          <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
+          <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
+          <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
+          <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
+          <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
+          <li><a href="perfil.html"><i class="ri-user-line"></i><span>PERFIL</span></a></li>
+        </ul>
+        <a href="cadastrar.html" class="btnSignupMenu">CADASTRE-SE</a>
+      </nav>
+    </header>
   <main>
     <div id="container">
         <span class="span-input">

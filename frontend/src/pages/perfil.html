@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil — Hive Study Club</title>
     <link rel="stylesheet" href="../styles/perfil.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+
     <link rel="icon" type="image/png" href="../assets/logo/logo.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
@@ -19,8 +21,7 @@
     <div class="bg-blob bg-blob--purple"></div>
     <div class="bg-blob bg-blob--yellow"></div>
 
-   
-    <header id="siteHeader">
+   <header id="siteHeader">
       <div class="headerInner">
         <a href="index.html" class="logoLink">
           <img class="logoImg" src="../assets/logo/logo.png" alt="Hive Study Club logo" />
@@ -40,6 +41,7 @@
         <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
         <ul class="navList">
           <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
+          <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
           <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
           <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
           <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
@@ -59,11 +61,9 @@
               class="avatar-img"
               id="avatarImg"
             />
-            <!-- botão para trocar a foto -->
             <div class="avatar-badge" title="Trocar foto">
               <i class="ri-camera-line"></i>
             </div>
-            <!-- botão para deletar a foto -->
             <div class="avatar-delete" title="Remover foto" onclick="deletarFoto()">
               <i class="ri-delete-bin-line"></i>
             </div>
@@ -92,6 +92,14 @@
           <div class="field-group">
             <label for="input-senha">Nova senha</label>
             <input type="password" id="input-senha" placeholder="••••••••" />
+          </div>
+          <div class="field-group">
+            <label for="input-senha">Area para Mentorar</label>
+            <p id="area-mentor">Nenhuma área selecionada</p>
+          </div>
+          <div class="field-group">
+            <label for="input-senha">Area para ser Mentorado</label>
+            <p id="area-mentorado">Nenhuma área selecionada</p>
           </div>
           <button class="btn-save" onclick="editarUser()">
             <i class="ri-save-line"></i> Salvar alterações
@@ -242,11 +250,6 @@
             });
         }, 400);
       });
-      window.addEventListener("scroll", () => {
-        document
-          .getElementById("top-header")
-          .classList.toggle("is-scrolled", window.scrollY > 10);
-      });
-    </script>
+</script>
   </body>
 </html>

@@ -1,4 +1,3 @@
-// carrega os dados do usuário ao abrir a página
 async function carregarPerfil() {
   const id = localStorage.getItem("userId");
   if (!id) return;
@@ -11,12 +10,10 @@ async function carregarPerfil() {
     document.getElementById("profileEmail").textContent = data.email;
     document.getElementById("pontos").textContent = data.pontos;
 
-    // se não tiver foto salva, usa a imagem padrão
     if (!data.fotoPerfil) {
       document.getElementById("avatarImg").src = "../assets/icons/imagem_user.png";
     }
 
-    // se tiver foto salva no banco, exibe ela
     if (data.fotoPerfil) {
       document.getElementById("avatarImg").src = `http://localhost:3000/${data.fotoPerfil}`;
     }
@@ -25,7 +22,6 @@ async function carregarPerfil() {
 
 carregarPerfil();
 
-// abre o seletor de arquivo ao clicar no ícone de câmera
 document.querySelector(".avatar-badge").addEventListener("click", () => {
   const input = document.createElement("input");
   input.type = "file";
@@ -50,8 +46,7 @@ document.querySelector(".avatar-badge").addEventListener("click", () => {
       });
 
       const data = await resp.json();
-
-      // atualiza a foto na tela sem precisar recarregar a página
+      
       if (resp.ok) {
         document.getElementById("avatarImg").src = `http://localhost:3000/${data.fotoPerfil}`;
       }
@@ -80,3 +75,38 @@ async function deletarFoto() {
     console.error("Erro ao deletar foto:", data.error);
   }
 }
+
+async function exibirAreasPerfil() {
+  const areaMentor = document.getElementById("area-mentor");
+  const areaMentorado = document.getElementById("area-mentorado");
+  const id = localStorage.getItem("userId");
+
+  if (!id) return;
+
+  const resp = await fetch(`http://localhost:3000/getAreas/${id}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+
+  const data = await resp.json();
+
+  if (!resp.ok) {
+    console.error("Erro ao buscar áreas:", data.error);
+    return;
+  }
+
+
+  const areasMentor = data.map(item => item.nomeAreaMentorar);
+
+  const areasMentorado = data.map(item => item.nomeAreaMentorado);
+
+  areaMentor.textContent =
+    areasMentor.join(", ") || "Nenhuma área selecionada";
+
+  areaMentorado.textContent =
+    areasMentorado.join(", ") || "Nenhuma área selecionada";
+}
+
+exibirAreasPerfil();

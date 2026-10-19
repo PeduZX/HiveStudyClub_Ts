@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ranking — Hive Study Club</title>
     <link rel="stylesheet" href="../styles/ranking.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+
     <link rel="icon" type="image/png" href="../assets/logo/logo.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css"
@@ -19,8 +21,7 @@
     <div class="bg-blob bg-blob--purple"></div>
     <div class="bg-blob bg-blob--yellow"></div>
 
-    <!-- HEADER -->
-  
+    
     <header id="siteHeader">
       <div class="headerInner">
         <a href="index.html" class="logoLink">
@@ -41,6 +42,7 @@
         <button class="menuCloseBtn" id="menuCloseBtn"><i class="ri-close-line"></i></button>
         <ul class="navList">
           <li><a href="index.html"><i class="ri-home-2-line"></i><span>HOME</span></a></li>
+          <li><a href="sobre.html"><i class="ri-file-marked-line"></i><span>SOBRE PROJETO</span></a></li>
           <li><a href="forum.html"><i class="ri-question-answer-fill"></i><span>CHAT</span></a></li>
           <li><a href="suporte.html"><i class="ri-phone-line"></i><span>SUPORTE</span></a></li>
           <li><a href="ranking.html"><i class="ri-trophy-line"></i><span>RANKING</span></a></li>
@@ -51,7 +53,7 @@
     </header>
 
     <main id="main-content">
-      <!-- Page Header -->
+      
       <div class="page-header">
         <div class="page-header-tag">
           <i class="ri-sparkling-line"></i> Atualizado semanalmente
@@ -67,7 +69,7 @@
 
     </main>
 
-    <!-- FOOTER -->
+    
     <footer id="site-footer">
       <div class="footer-links">
         <a href="login.html">Login</a>
@@ -86,12 +88,7 @@
 
     <script src="../scripts/script.js"></script>
   <script>
-  window.addEventListener("scroll", () => {
-    document.getElementById("top-header")
-      .classList.toggle("is-scrolled", window.scrollY > 10);
-  });
-
-  gerarRanking();
+gerarRanking();
 </script>
   </body>
 </html>

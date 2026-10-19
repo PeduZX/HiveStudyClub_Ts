@@ -46,9 +46,7 @@ body {
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
-/* =============================================
-   HEADER
-   ============================================= */
+
 #top-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -238,9 +236,7 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 6px 20px rgba(240,202,36,0.4);
 }
 
-/* =============================================
-   MAIN
-   ============================================= */
+
 main {
   position: relative;
   min-height: 100vh;
@@ -251,7 +247,7 @@ main {
   overflow: hidden;
 }
 
-/* Background blobs */
+
 .bg-blob {
   position: absolute;
   border-radius: 50%;
@@ -334,9 +330,7 @@ main {
   color: var(--color-yellow);
 }
 
-/* =============================================
-   FORM
-   ============================================= */
+
 .reset-form {
   width: 100%;
   display: flex;
@@ -487,9 +481,7 @@ main {
 }
 .resend-btn:hover { color: var(--color-yellow-hover); }
 
-/* =============================================
-   FOOTER
-   ============================================= */
+
 #site-footer {
   display: flex;
   flex-direction: row;
@@ -544,17 +536,13 @@ main {
   transform: translateY(-3px);
 }
 
-/* =============================================
-   ANIMAÇÕES
-   ============================================= */
+
 @keyframes anim-fade-up {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* =============================================
-   RESPONSIVO
-   ============================================= */
+
 @media (max-width: 500px) {
   .reset-card { padding: 32px 22px; }
   #site-footer {
