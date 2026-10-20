@@ -27,7 +27,7 @@ npm i fastest-levenshtein
 npm install --save-dev concurrently
 ```
 ```
-"dependencies": {
+ "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "corss": "^2.8.5",
@@ -36,10 +36,17 @@ npm install --save-dev concurrently
     "fastest-levenshtein": "^1.0.16",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
-    "mysql2": "^3.22.6",
+    "mysql2": "^3.24.2",
     "nodemon": "^3.1.14",
     "socket.io": "^4.8.3"
-  }
+  },
+```
+```
+"scripts": {
+  "start": "concurrently -k \"npm:api\" \"npm:websocket\"",
+  "api": "nodemon backend/src/server.js",
+  "websocket": "nodemon backend/src/serverWebsocket.js"
+},
 ```
 ---
 
