@@ -1,6 +1,6 @@
 const userId = localStorage.getItem("userId") || 0;
 const token = localStorage.getItem("token");
-const SALA = "geral";
+const SALA = document.body.dataset.chatRoom || "geral";
 const CHAT_SERVER_URL = "http://localhost:3001";
 const socket = io(CHAT_SERVER_URL, { auth: { token } });
 const msgArea = document.getElementById("messages-area");

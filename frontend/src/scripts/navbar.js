@@ -3,7 +3,8 @@ if (loginButton) {
   const token = localStorage.getItem("token");
   const nome = localStorage.getItem("nome");
   loginButton.textContent = token && nome ? nome : "Faça Login";
-  loginButton.href = token && nome ? "perfil.html" : "login.html";
+  const prefixoPagina = window.location.pathname.includes("/chats/") ? "../" : "";
+  loginButton.href = token && nome ? `${prefixoPagina}perfil.html` : `${prefixoPagina}login.html`;
 }
 const siteHeader = document.getElementById("siteHeader");
 const menuToggle = document.getElementById("menuToggle");

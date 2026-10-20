@@ -66,6 +66,10 @@ uploadCancel.addEventListener("click", closeUpload);
 overlay.addEventListener("click", (event) => {
   if (event.target === overlay) closeUpload();
 });
+dropZone.addEventListener("click", (event) => {
+  if (event.isTrusted && event.target !== fileInput) fileInput.click();
+});
+
 fileInput.addEventListener("change", () => {
   if (fileInput.files.length) setFile(fileInput.files[0]);
 });
